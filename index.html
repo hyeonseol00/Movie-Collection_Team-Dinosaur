@@ -22,21 +22,33 @@
 				</a> -->
 
 				<ul class="nav col-auto me-auto justify-content-center">
-					<li><a href="#" class="nav-link px-2 text-white">Movie Collection</a></li>
+					<li><a href="#" class="nav-link px-2 text-white">영화 모음집</a></li>
 				</ul>
 
 				<div class="col-auto me-3">
 					<input id="searchBox" type="search" class="form-control form-control-light text-bg-light"
-						placeholder="Search..." aria-label="Search" autofocus>
+						placeholder="찾아보기..." aria-label="Search" autofocus>
 				</div>
 
 				<div class="text-end">
-					<button id="searchButton" type="button" class="btn btn-outline-light me-2">Search</button>
+					<button id="searchButton" type="button" class="btn btn-outline-light me-2">검색</button>
 				</div>
 			</div>
 		</div>
 	</header>
+
 	<div class="card-box">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination pagination-lg justify-content-end">
+				<li class="page-item"><a class="page-link" href="#">이전</a></li>
+				<li class="page-item"><a class="page-link active" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item"><a class="page-link" href="#">4</a></li>
+				<li class="page-item"><a class="page-link" href="#">5</a></li>
+				<li class="page-item"><a class="page-link" href="#">다음</a></li>
+			</ul>
+		</nav>
 		<div id="cards" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
 			<!-- <div class="col">
 				<div class="card h-100">
@@ -53,10 +65,21 @@
 			</div> -->
 		</div>
 	</div>
+	<nav aria-label="Page navigation example">
+		<ul class="pagination pagination-lg justify-content-center">
+			<li class="page-item"><a class="page-link" href="#">이전</a></li>
+			<li class="page-item"><a class="page-link active" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">4</a></li>
+			<li class="page-item"><a class="page-link" href="#">5</a></li>
+			<li class="page-item"><a class="page-link" href="#">다음</a></li>
+		</ul>
+	</nav>
+
 	<a href="#" class="nav button-top">
 		<img src="topButton.png" alt="">
 	</a>
-
 	<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
 			<div class="modal-content">

@@ -39,13 +39,17 @@ header {
 	z-index: 900;
 }
 
-.button-top > img {
+.button-top>img {
 	object-fit: fill;
 
 	width: 80px;
 	height: 80px;
 }
 
-.poster-box > img {
+.poster-box>img {
 	border-radius: 5px;
+}
+
+.pagination {
+	margin-bottom: 50px;
 }
