@@ -1,4 +1,7 @@
-<h1>TMDB의 Open API를 활용해 높은 평점의 영화들을 소개하는 웹페이지입니다.</h1>
+<h1>개인과제) 영화 모음집</h1>
+TMDB의 Open API를 활용해 높은 평점의 영화들을 소개하는 웹페이지입니다.
+
+<br><br>
 
 페이지 링크 : <br>
 https://hyeonseol00.github.io/Movie-Collection/
