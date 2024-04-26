@@ -6,6 +6,11 @@ const $searchButton = document.getElementById("searchButton");
 const $modalInneer = document.querySelector("#modalInneer");
 const $pageLinkButton = document.getElementsByClassName("page-link");
 
+const maxCardNumberInPage = 20;
+const maxPaginationButtonNumber = 5;
+const maxOverviewStringLength = 180;
+const loadDocsPage = 20; // API에서 받아올 때 데이터 양은 페이지 당 20으로 고정. 그러므로 총 Docs 수가 아닌 Docs 페이지 수를 정의
+
 let docs = new Array();
 let pageNumber = 1;
 
@@ -19,7 +24,7 @@ const options = {
 
 async function getDocs()
 {
-	for (let i = 1; i <= 5; i++)
+	for (let i = 1; i <= loadDocsPage; i++)
 		await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=${i}`, options)
 			.then(response => response.json())
 			.then(response =>
@@ -51,13 +56,13 @@ function makeCards(searchText)
 
 	let cardCount = 0;
 
-	for (let i = searchText == "" ? (pageNumber - 1) * 20 : 0; i < docs.length; i++)
+	for (let i = searchText == "" ? (pageNumber - 1) * maxCardNumberInPage : 0; i < docs.length; i++)
 	{
 		if (docs[i]['title'].toLowerCase().indexOf(searchText) !== -1 || searchText === "")
 		{
-			let tempOverview = docs[i].overview.slice(0, 180);
+			let tempOverview = docs[i].overview.slice(0, maxOverviewStringLength);
 
-			if (tempOverview.length >= 179)
+			if (tempOverview.length >= maxOverviewStringLength - 1)
 				tempOverview += "...";
 
 			let temp_html = `
@@ -87,7 +92,7 @@ function makeCards(searchText)
 			cardCount++;
 		}
 
-		if (cardCount >= 20)
+		if (cardCount >= maxCardNumberInPage)
 			break;
 	}
 }
@@ -133,24 +138,51 @@ $searchButton.addEventListener('click', (event) =>
 	inputEvent();
 })
 
+function loadPaginationButtonState()
+{
+	$pageLinkButton.forEach((btn) =>
+	{
+		btn.className = 'page-link';
+		if (btn.innerHTML == pageNumber)
+			btn.className += ' active';
+		else if (parseInt($pageLinkButton[1].innerHTML) - maxPaginationButtonNumber <= 0 && btn.innerHTML == "이전")
+			btn.className += ' disabled';
+		else if (parseInt($pageLinkButton[1].innerHTML) + maxPaginationButtonNumber >= loadDocsPage && btn.innerHTML == "다음")
+			btn.className += ' disabled';
+	});
+}
+
 $pageLinkButton.forEach((button) =>
 {
 	button.addEventListener('click', (event) =>
 	{
 		event.preventDefault();
 
-		if (button.innerHTML != "이전" && button.innerHTML != "다음")
+		if (button.innerHTML == "이전")
+		{
+			$pageLinkButton.forEach((btn) =>
+			{
+				if (btn.innerHTML != "이전" && btn.innerHTML != "다음")
+					btn.innerHTML = parseInt(btn.innerHTML) - maxPaginationButtonNumber;
+			});
+			pageNumber = $pageLinkButton[5].innerHTML;			
+		}
+		else if (button.innerHTML == "다음")
+		{
+			$pageLinkButton.forEach((btn) =>
+			{
+				if (btn.innerHTML != "이전" && btn.innerHTML != "다음")
+					btn.innerHTML = parseInt(btn.innerHTML) + maxPaginationButtonNumber;
+			});
+			pageNumber = $pageLinkButton[1].innerHTML;		
+		}
+		else
 			pageNumber = button.innerHTML;
 
-		$pageLinkButton.forEach((btn) =>
-		{
-			btn.className = 'page-link';
-			if (btn.innerHTML == pageNumber)
-				btn.className += ' active';
-		});
-
+		loadPaginationButtonState();
 		makeCards("");
 	});
 });
 
 getDocs();
+loadPaginationButtonState();

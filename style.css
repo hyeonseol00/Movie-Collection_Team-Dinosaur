@@ -46,10 +46,29 @@ header {
 	height: 80px;
 }
 
-.poster-box>img {
-	border-radius: 5px;
+.page-link {
+	padding: 10px 20px 10px 20px;
 }
 
-.pagination {
+.pagination-top {
+	margin-top: 50px;
+}
+
+.pagination-btm {
 	margin-bottom: 50px;
+}
+
+.justify-content-end {
+	padding-right: 30px;
+}
+
+@media (max-width: 550px) {
+	.justify-content-end {
+		padding-right: 0px;
+		justify-content: center !important;
+	}
+}
+
+.poster-box>img {
+	border-radius: 5px;
 }
