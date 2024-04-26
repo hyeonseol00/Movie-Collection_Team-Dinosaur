@@ -24,27 +24,30 @@ const options = {
 
 async function getDocs()
 {
-	for (let i = 1; i <= loadDocsPage; i++)
-		await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=${i}`, options)
-			.then(response => response.json())
-			.then(response =>
+	try
+	{
+		for (let i = 1; i <= loadDocsPage; i++)
+		{
+			const fetchDocs = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=${i}`, options);
+			const response = await fetchDocs.json();
+
+			response['results'].forEach((doc) =>
 			{
-				response['results'].forEach((doc) =>
-				{
-					docs.push({
-						backdropImage: "https://image.tmdb.org/t/p/w400" + doc['backdrop_path'],
-						posterImage: "https://image.tmdb.org/t/p/w400" + doc['poster_path'],
-						originalTitle: doc['original_title'],
-						title: doc['title'],
-						releaseDate: doc['release_date'],
-						movieId: doc['id'],
-						voteAverage: doc['vote_average'],
-						voteCount: doc['vote_count'],
-						overview: doc['overview'],
-					});
+				docs.push({
+					backdropImage: "https://image.tmdb.org/t/p/w400" + doc['backdrop_path'],
+					posterImage: "https://image.tmdb.org/t/p/w400" + doc['poster_path'],
+					originalTitle: doc['original_title'],
+					title: doc['title'],
+					releaseDate: doc['release_date'],
+					movieId: doc['id'],
+					voteAverage: doc['vote_average'],
+					voteCount: doc['vote_count'],
+					overview: doc['overview'],
 				});
-			})
-			.catch(err => console.error(err));
+			});
+		}
+	}
+	catch (err) { console.error(err) };
 
 	makeCards("");
 }
@@ -165,7 +168,7 @@ $pageLinkButton.forEach((button) =>
 				if (btn.innerHTML != "이전" && btn.innerHTML != "다음")
 					btn.innerHTML = parseInt(btn.innerHTML) - maxPaginationButtonNumber;
 			});
-			pageNumber = $pageLinkButton[5].innerHTML;			
+			pageNumber = $pageLinkButton[5].innerHTML;
 		}
 		else if (button.innerHTML == "다음")
 		{
@@ -174,7 +177,7 @@ $pageLinkButton.forEach((button) =>
 				if (btn.innerHTML != "이전" && btn.innerHTML != "다음")
 					btn.innerHTML = parseInt(btn.innerHTML) + maxPaginationButtonNumber;
 			});
-			pageNumber = $pageLinkButton[1].innerHTML;		
+			pageNumber = $pageLinkButton[1].innerHTML;
 		}
 		else
 			pageNumber = button.innerHTML;
