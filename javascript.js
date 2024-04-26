@@ -1,9 +1,9 @@
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
 const $cardsDiv = document.querySelector("#cards");
-const $searchBox = document.getElementById("searchBox");
-const $searchButton = document.getElementById("searchButton");
-const $modalInneer = document.querySelector("#modalInneer");
+const $searchBox = document.getElementById("search-box");
+const $searchButton = document.getElementById("search-button");
+const $modalInneer = document.querySelector("#modal-inneer");
 const $pageLinkButton = document.getElementsByClassName("page-link");
 
 const maxCardNumberInPage = 20;
