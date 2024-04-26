@@ -3,9 +3,9 @@ import { makeCards, loadPaginationButtonState, addEventListeners } from "./commo
 
 async function init()
 {
-	addEventListeners();
 	await getDocs();
 	makeCards("");
+	addEventListeners();
 	loadPaginationButtonState();
 }
 
