@@ -1,3 +1,4 @@
+import { docs, loadDocsPage } from "./fetch.js";
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
 const $cardsDiv = document.querySelector("#cards");
@@ -9,53 +10,13 @@ const $pageLinkButton = document.getElementsByClassName("page-link");
 const maxCardNumberInPage = 20;
 const maxPaginationButtonNumber = 5;
 const maxOverviewStringLength = 180;
-const loadDocsPage = 20; // API에서 받아올 때 데이터 양은 페이지 당 20으로 고정. 그러므로 총 Docs 수가 아닌 Docs 페이지 수를 정의
 
-let docs = new Array();
 let pageNumber = 1;
-
-const options = {
-	method: 'GET',
-	headers: {
-		accept: 'application/json',
-		Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YzE0MzAzYWIzYzViMDk1Y2RhODZkM2FjNDE3NjQ4MSIsInN1YiI6IjY2Mjc2MGUzZTg5NGE2MDE3ZDNkNDU1OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kGzDSaGDQaTJEELIaLkxZDQAZkX-W4RusSOXOhYi6YQ'
-	}
-};
-
-async function getDocs()
-{
-	try
-	{
-		for (let i = 1; i <= loadDocsPage; i++)
-		{
-			const fetchDocs = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=${i}`, options);
-			const response = await fetchDocs.json();
-
-			response['results'].forEach((doc) =>
-			{
-				docs.push({
-					backdropImage: "https://image.tmdb.org/t/p/w400" + doc['backdrop_path'],
-					posterImage: "https://image.tmdb.org/t/p/w400" + doc['poster_path'],
-					originalTitle: doc['original_title'],
-					title: doc['title'],
-					releaseDate: doc['release_date'],
-					movieId: doc['id'],
-					voteAverage: doc['vote_average'],
-					voteCount: doc['vote_count'],
-					overview: doc['overview'],
-				});
-			});
-		}
-	}
-	catch (err) { console.error(err) };
-
-	makeCards("");
-}
 
 function makeCards(searchText)
 {
 	$cardsDiv.innerHTML = "";
-	searchText = searchText.toLowerCase();
+	//searchText = searchText.toLowerCase();
 
 	let cardCount = 0;
 
@@ -129,18 +90,6 @@ function clickedCard(movieId)
 
 function inputEvent() { makeCards($searchBox.value); }
 
-$searchBox.addEventListener('keyup', (event) =>
-{
-	event.preventDefault();
-	inputEvent();
-})
-
-$searchButton.addEventListener('click', (event) =>
-{
-	event.preventDefault();
-	inputEvent();
-})
-
 function loadPaginationButtonState()
 {
 	$pageLinkButton.forEach((btn) =>
@@ -155,37 +104,51 @@ function loadPaginationButtonState()
 	});
 }
 
-$pageLinkButton.forEach((button) =>
+function addEventListeners()
 {
-	button.addEventListener('click', (event) =>
+	$searchBox.addEventListener('keyup', (event) =>
 	{
 		event.preventDefault();
+		inputEvent();
+	})
 
-		if (button.innerHTML == "이전")
-		{
-			$pageLinkButton.forEach((btn) =>
-			{
-				if (btn.innerHTML != "이전" && btn.innerHTML != "다음")
-					btn.innerHTML = parseInt(btn.innerHTML) - maxPaginationButtonNumber;
-			});
-			pageNumber = $pageLinkButton[5].innerHTML;
-		}
-		else if (button.innerHTML == "다음")
-		{
-			$pageLinkButton.forEach((btn) =>
-			{
-				if (btn.innerHTML != "이전" && btn.innerHTML != "다음")
-					btn.innerHTML = parseInt(btn.innerHTML) + maxPaginationButtonNumber;
-			});
-			pageNumber = $pageLinkButton[1].innerHTML;
-		}
-		else
-			pageNumber = button.innerHTML;
+	$searchButton.addEventListener('click', (event) =>
+	{
+		event.preventDefault();
+		inputEvent();
+	})
 
-		loadPaginationButtonState();
-		makeCards("");
+	$pageLinkButton.forEach((button) =>
+	{
+		button.addEventListener('click', (event) =>
+		{
+			event.preventDefault();
+
+			if (button.innerHTML == "이전")
+			{
+				$pageLinkButton.forEach((btn) =>
+				{
+					if (btn.innerHTML != "이전" && btn.innerHTML != "다음")
+						btn.innerHTML = parseInt(btn.innerHTML) - maxPaginationButtonNumber;
+				});
+				pageNumber = $pageLinkButton[5].innerHTML;
+			}
+			else if (button.innerHTML == "다음")
+			{
+				$pageLinkButton.forEach((btn) =>
+				{
+					if (btn.innerHTML != "이전" && btn.innerHTML != "다음")
+						btn.innerHTML = parseInt(btn.innerHTML) + maxPaginationButtonNumber;
+				});
+				pageNumber = $pageLinkButton[1].innerHTML;
+			}
+			else
+				pageNumber = button.innerHTML;
+
+			loadPaginationButtonState();
+			makeCards("");
+		});
 	});
-});
+}
 
-getDocs();
-loadPaginationButtonState();
+export { makeCards, loadPaginationButtonState, addEventListeners };
