@@ -13,17 +13,14 @@ const maxOverviewStringLength = 180;
 
 let pageNumber = 1;
 
-function makeCards(searchText)
-{
+function makeCards(searchText) {
 	$cardsDiv.innerHTML = "";
 	//searchText = searchText.toLowerCase();
 
 	let cardCount = 0;
 
-	for (let i = searchText == "" ? (pageNumber - 1) * maxCardNumberInPage : 0; i < docs.length; i++)
-	{
-		if (docs[i]['title'].toLowerCase().indexOf(searchText) !== -1 || searchText === "")
-		{
+	for (let i = searchText == "" ? (pageNumber - 1) * maxCardNumberInPage : 0; i < docs.length; i++) {
+		if (docs[i]['title'].toLowerCase().indexOf(searchText) !== -1 || searchText === "") {
 			let tempOverview = docs[i].overview.slice(0, maxOverviewStringLength);
 
 			if (tempOverview.length >= maxOverviewStringLength - 1)
@@ -47,8 +44,7 @@ function makeCards(searchText)
 			$cardsDiv.insertAdjacentHTML("beforeend", temp_html);
 
 			const $card = document.getElementById(docs[i].movieId);
-			$card.addEventListener('click', (event) =>
-			{
+			$card.addEventListener('click', (event) => {
 				event.preventDefault();
 				clickedCard($card.id);
 			})
@@ -61,8 +57,7 @@ function makeCards(searchText)
 	}
 }
 
-function clickedCard(movieId)
-{
+function clickedCard(movieId) {
 	$modalInneer.innerHTML = "";
 
 	let idx = docs.findIndex((doc) => { return doc['movieId'] == movieId; });
@@ -90,10 +85,8 @@ function clickedCard(movieId)
 
 function inputEvent() { makeCards($searchBox.value); }
 
-function loadPaginationButtonState()
-{
-	$pageLinkButton.forEach((btn) =>
-	{
+function loadPaginationButtonState() {
+	$pageLinkButton.forEach((btn) => {
 		btn.className = 'page-link';
 		if (btn.innerHTML == pageNumber)
 			btn.className += ' active';
@@ -104,39 +97,30 @@ function loadPaginationButtonState()
 	});
 }
 
-function addEventListeners()
-{
-	$searchBox.addEventListener('keyup', (event) =>
-	{
+function addEventListeners() {
+	$searchBox.addEventListener('keyup', (event) => {
 		event.preventDefault();
 		inputEvent();
 	})
 
-	$searchButton.addEventListener('click', (event) =>
-	{
+	$searchButton.addEventListener('click', (event) => {
 		event.preventDefault();
 		inputEvent();
 	})
 
-	$pageLinkButton.forEach((button) =>
-	{
-		button.addEventListener('click', (event) =>
-		{
+	$pageLinkButton.forEach((button) => {
+		button.addEventListener('click', (event) => {
 			event.preventDefault();
 
-			if (button.innerHTML == "이전")
-			{
-				$pageLinkButton.forEach((btn) =>
-				{
+			if (button.innerHTML == "이전") {
+				$pageLinkButton.forEach((btn) => {
 					if (btn.innerHTML != "이전" && btn.innerHTML != "다음")
 						btn.innerHTML = parseInt(btn.innerHTML) - maxPaginationButtonNumber;
 				});
 				pageNumber = $pageLinkButton[5].innerHTML;
 			}
-			else if (button.innerHTML == "다음")
-			{
-				$pageLinkButton.forEach((btn) =>
-				{
+			else if (button.innerHTML == "다음") {
+				$pageLinkButton.forEach((btn) => {
 					if (btn.innerHTML != "이전" && btn.innerHTML != "다음")
 						btn.innerHTML = parseInt(btn.innerHTML) + maxPaginationButtonNumber;
 				});
