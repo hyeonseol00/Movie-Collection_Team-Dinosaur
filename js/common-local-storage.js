@@ -1,12 +1,12 @@
-function makeReviewObjectInLocalStorage(movieId) {	
+function makeReviewObjectInLocalStorage(movieId) {
 	let tempObject;
 
-	if (localStorage.review === undefined) 
-		tempObject = { review: {} };
-	else
+	if (localStorage.review === undefined)
+		tempObject = {};
+	else {
 		tempObject = JSON.parse(localStorage.review);
-	
-	tempObject.review[movieId] = [];
+		tempObject[movieId] = [];
+	}
 
 	localStorage.review = JSON.stringify(tempObject);
 }
