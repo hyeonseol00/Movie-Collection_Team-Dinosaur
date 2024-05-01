@@ -1,4 +1,4 @@
-import { docs, loadDocsPage } from "./fetch.js";
+import { docs } from "./fetch.js";
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
 const $cardsDiv = document.querySelector("#cards");
@@ -10,6 +10,7 @@ const $pageLinkButton = document.getElementsByClassName("page-link");
 const maxCardNumberInPage = 20;
 const maxPaginationButtonNumber = 5;
 const maxOverviewStringLength = 180;
+const loadDocsPage = 20;
 
 let pageNumber = 1;
 
@@ -135,4 +136,4 @@ function addEventListeners() {
 	});
 }
 
-export { makeCards, loadPaginationButtonState, addEventListeners };
+export { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage };
