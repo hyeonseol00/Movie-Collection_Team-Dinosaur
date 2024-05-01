@@ -1,75 +1,133 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 
 * {
-	font-family: "Noto Sans KR", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 400;
-	font-style: normal;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 header {
-	position: sticky;
-	top: 0;
-	z-index: 900;
-	background-color: #303030;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background-color: #303030;
 }
 
 .card-box {
-	max-width: 1600px;
-	margin: 20px auto 20px auto;
-	padding: 30px;
+  max-width: 1600px;
+  margin: 20px auto 20px auto;
+  padding: 30px;
 }
 
 .main-card {
-	cursor: pointer;
-	transition: all 0.1s linear;
+  cursor: pointer;
+  transition: all 0.1s linear;
 }
 
 .main-card:hover {
-	transform: scale(1.1);
-	z-index: 800;
+  transform: scale(1.1);
+  z-index: 800;
 }
 
 .button-top {
-	position: fixed;
+  position: fixed;
 
-	bottom: 40px;
-	right: 40px;
+  bottom: 40px;
+  right: 40px;
 
-	z-index: 900;
+  z-index: 900;
 }
 
-.button-top>img {
-	object-fit: fill;
+.button-top > img {
+  object-fit: fill;
 
-	width: 80px;
-	height: 80px;
+  width: 80px;
+  height: 80px;
 }
 
 .page-link {
-	padding: 10px 20px 10px 20px;
+  padding: 10px 20px 10px 20px;
 }
 
 .pagination-top {
-	max-width: 1600px;
-	margin: 50px auto 0px auto;
+  max-width: 1600px;
+  margin: 50px auto 0px auto;
 }
 
 .pagination-btm {
-	margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .justify-content-end {
-	padding-right: 30px;
+  padding-right: 30px;
 }
 
 @media (max-width: 550px) {
-	.justify-content-end {
-		padding-right: 0px;
-		justify-content: center !important;
-	}
+  .justify-content-end {
+    padding-right: 0px;
+    justify-content: center !important;
+  }
 }
 
-.poster-box>img {
-	border-radius: 5px;
+.poster-box > img {
+  border-radius: 5px;
+}
+
+.Sangsae {
+  width: 50vw;
+  float: left;
+  padding: 30px;
+}
+
+.poster-frame {
+  border: 2px solid black;
+  padding: 10px;
+  width: 100%;
+  height: 400px;
+}
+#overviewTextarea {
+  height: 300px;
+}
+.reviewbox {
+  width: 48vw;
+  height: 1000px;
+  float: right;
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid black;
+  margin-top: 27px;
+  margin-right: 10px;
+}
+.register-button {
+  bottom: 10px;
+  right: 10px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+.input-container input {
+  margin-right: 10px;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.edit-button,
+.delete-button,
+.register-button {
+  margin-left: 10px;
+}
+
+.inner-box {
+  min-height: 250px;
+  border-radius: 10px;
+  border: 1px solid black;
+  position: relative;
+  padding: 10px;
 }
