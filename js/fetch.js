@@ -1,3 +1,5 @@
+import { makeReviewObjectInLocalStorage } from "./common-local-storage.js";
+
 let docs = new Array();
 const loadDocsPage = 20; // API에서 받아올 때 데이터 양은 페이지 당 20으로 고정. 그러므로 총 Docs 수가 아닌 Docs 페이지 수를 정의
 
@@ -9,17 +11,13 @@ const options = {
 	}
 };
 
-async function getDocs()
-{
-	try
-	{
-		for (let i = 1; i <= loadDocsPage; i++)
-		{
+async function getDocs() {
+	try {
+		for (let i = 1; i <= loadDocsPage; i++) {
 			const fetchDocs = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=${i}`, options);
 			const response = await fetchDocs.json();
 
-			response['results'].forEach((doc) =>
-			{
+			response['results'].forEach((doc) => {
 				docs.push({
 					backdropImage: "https://image.tmdb.org/t/p/w400" + doc['backdrop_path'],
 					posterImage: "https://image.tmdb.org/t/p/w400" + doc['poster_path'],
@@ -31,6 +29,7 @@ async function getDocs()
 					voteCount: doc['vote_count'],
 					overview: doc['overview'],
 				});
+				makeReviewObjectInLocalStorage(doc['id']);
 			});
 		}
 	}
