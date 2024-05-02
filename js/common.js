@@ -1,11 +1,13 @@
 import { docs } from "./fetch.js";
+import { initInformationPage } from "./switch-info-page.js";
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
-const $cardsDiv = document.querySelector("#cards");
-const $searchBox = document.getElementById("search-box");
-const $searchButton = document.getElementById("search-button");
-const $modalInneer = document.querySelector("#modal-inneer");
-const $pageLinkButton = document.getElementsByClassName("page-link");
+let $body;
+let $cardsDiv;
+let $searchBox;
+let $searchButton;
+let $modalInneer;
+let $pageLinkButton;
 
 const maxCardNumberInPage = 20;
 const maxPaginationButtonNumber = 5;
@@ -13,6 +15,15 @@ const maxOverviewStringLength = 180;
 const loadDocsPage = 20;
 
 let pageNumber = 1;
+
+function initializeQuerySelector() {
+	$body = document.querySelector("body");
+	$cardsDiv = document.querySelector("#cards");
+	$searchBox = document.getElementById("search-box");
+	$searchButton = document.getElementById("search-button");
+	$modalInneer = document.querySelector("#modal-inneer");
+	$pageLinkButton = document.getElementsByClassName("page-link");
+}
 
 function makeCards(searchText) {
 	$cardsDiv.innerHTML = "";
@@ -29,7 +40,7 @@ function makeCards(searchText) {
 
 			let temp_html = `
 				<div class="col">
-					<div id="${docs[i].movieId}" class="card h-100 main-card" data-bs-toggle="modal" data-bs-target="#infoModal">
+					<div id="${docs[i].movieId}" class="card h-100 main-card">
 						<img src="${docs[i].backdropImage}" class="card-img-top" alt="...">
 						<div class="card-body">
 							<h3 class="card-title">${docs[i].title}</h3>
@@ -59,11 +70,12 @@ function makeCards(searchText) {
 }
 
 function clickedCard(movieId) {
-	$modalInneer.innerHTML = "";
+	$body.innerHTML = "";
 
 	let idx = docs.findIndex((doc) => { return doc['movieId'] == movieId; });
 
 	let temp_html = `
+		<button id="exit-button" type="button" class="btn btn-outline-danger me-2">나가기</button>
 		<div class="row row-cols-1 row-cols-xl-2">
 			<div class="col p-4 text-center poster-box">
 				<img src="${docs[idx]['posterImage']}" alt="">
@@ -81,7 +93,8 @@ function clickedCard(movieId) {
 		</div>
 		`;
 
-	$modalInneer.insertAdjacentHTML("beforeend", temp_html);
+	$body.insertAdjacentHTML("beforeend", temp_html);
+	initInformationPage();
 }
 
 function inputEvent() { makeCards($searchBox.value); }
@@ -136,4 +149,4 @@ function addEventListeners() {
 	});
 }
 
-export { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage };
+export { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage, initializeQuerySelector, pageNumber, maxPaginationButtonNumber };
