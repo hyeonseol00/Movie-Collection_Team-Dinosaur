@@ -7,7 +7,7 @@ function inputReview(inputId) { //idInput
     if (madevalue.trim() !== "") {
         return madevalue;
     } else {
-        return "defind8792";
+        return "empty8792";
     };
 }
 
@@ -27,7 +27,7 @@ function madeObject(secondinputId) {
     }
     for (let j = 0; j < firstinputId.length; j++) {
         let catchValue = answerObject[objectKey[j]]
-        if (catchValue === "defind8792") {
+        if (catchValue === "empty8792") {
             alert(`${objectKey[j]} 입력해주세요.`)
             catchError = 8792
             break
@@ -49,7 +49,6 @@ function storageUpdate(movieId, secondId) {
     } else {
         tempObject[movieId].push(userObject); // 234: [{name: "input", ...}]
         setReviewObject(tempObject);
-        console.log("==>", tempObject); //영화 아이디 누락
     };
 }
 
@@ -61,6 +60,7 @@ function uploadBtr(movieId, brtId, secondId) {
     const $getbrt = document.getElementById(brtId);
     $getbrt.addEventListener("click", (event) => {
         storageUpdate(movieId, secondId);
+        temping(movieId, "rivew-borderbox");
     });
 }
 
@@ -69,18 +69,20 @@ function uploadBtr(movieId, brtId, secondId) {
 function temping(movieId, tagId) {
     const $getTagId = document.getElementById(tagId);
     let openObject = getReviewObject();
-    if (openObject[movieId] === "[]") {
-    let temp_html = ``
-    $getTagId.innerHTML = temp_html
+    if (!openObject[movieId] || openObject[movieId].length === 0) {
+        $getTagId.innerHTML = ``;
+        return;
+    };
+    $getTagId.innerHTML = ``;
     let i = 0;
     openObject[movieId].forEach((getObject) => {
         let temp_rivew = `
         <div class="card border-secondary mb-3">
             <div class="card-header">
-                <h5>${getObject["name"]}이름</h5>
+                <h5>${getObject["name"]}</h5>
             </div>
             <div class="card-body text-secondary">
-                <p class="card-text">${getObject["text"]}리뷰</p>
+                <p class="card-text">${getObject["text"]}</p>
                 <button id="deletebtr" type="button" data-idx="${i}" data-pw"${getObject["password"]}" class="btn btn-dark">삭제</button>
                 <button id="updatebtr" type="button" data-idx="${i}" data-pw"${getObject["password"]}" class="btn btn-secondary">수정</button>
             </div>
@@ -88,11 +90,7 @@ function temping(movieId, tagId) {
         `;
         $getTagId.insertAdjacentHTML('beforeend', temp_rivew);
         i++;
-    })
-    }
+    });
 }
 
-
-
-export { uploadBtr, temping };
-
+export { uploadBtr };
