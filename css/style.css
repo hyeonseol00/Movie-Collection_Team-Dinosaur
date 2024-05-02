@@ -59,7 +59,7 @@ header {
 	margin-bottom: 50px;
 }
 
-.justify-content-end {
+.pr-30 {
 	padding-right: 30px;
 }
 
@@ -95,11 +95,15 @@ header {
 	display: grid;
 	margin-top: 27px; */
 
-	flex-direction: column;
 	padding: 30px;
 	border-radius: 10px;
 	border: 2px solid black;
 }
+
+#review-textarea {
+	height: 100px;
+}
+
 /* 
 .sangsae {
 	width: 50vw;
