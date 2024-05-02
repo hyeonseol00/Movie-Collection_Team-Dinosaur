@@ -72,17 +72,20 @@ header {
 
 .poster-box>img {
 	border-radius: 5px;
+	width: 100%;
+	max-width: 400px;
 }
 
 #exit-button {
 	color: white;
 }
 
-.poster-frame {
+#poster-frame {
 	border: 2px solid black;
-	padding: 10px;
+	padding: 30px;
+	/* 
 	width: 100%;
-	height: 400px;
+	height: 400px; */
 }
 
 #review-box {/* 
