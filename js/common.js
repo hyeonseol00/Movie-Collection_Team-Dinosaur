@@ -1,11 +1,11 @@
 import { docs } from "./fetch.js";
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
-const $cardsDiv = document.querySelector("#cards");
-const $searchBox = document.getElementById("search-box");
-const $searchButton = document.getElementById("search-button");
-const $modalInneer = document.querySelector("#modal-inneer");
-const $pageLinkButton = document.getElementsByClassName("page-link");
+let $cardsDiv;
+let $searchBox;
+let $searchButton;
+let $modalInneer;
+let $pageLinkButton;
 
 const maxCardNumberInPage = 20;
 const maxPaginationButtonNumber = 5;
@@ -13,6 +13,14 @@ const maxOverviewStringLength = 180;
 const loadDocsPage = 20;
 
 let pageNumber = 1;
+
+function initializeQuerySelector() {
+	$cardsDiv = document.querySelector("#cards");
+	$searchBox = document.getElementById("search-box");
+	$searchButton = document.getElementById("search-button");
+	$modalInneer = document.querySelector("#modal-inneer");
+	$pageLinkButton = document.getElementsByClassName("page-link");
+}
 
 function makeCards(searchText) {
 	$cardsDiv.innerHTML = "";
@@ -136,4 +144,4 @@ function addEventListeners() {
 	});
 }
 
-export { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage };
+export { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage, initializeQuerySelector };
