@@ -56,31 +56,36 @@ function storageUpdate(movieId, secondId) {
 // brtId: html button Id, movieId: 영화Id
 //seconId 정의 : html input태그의 변형되는 firstId 는 생략하고 그 나머지 반복되는 Id
 // Ex: updateBtr(movieId, "updatebtr", "input") 이렇게 설정 가능
-function updateBtr(movieId, brtId, secondId) {
+function uploadBtr(movieId, brtId, secondId) {
     const $getbrt = document.getElementById(brtId);
     $getbrt.addEventListener("click", (event) => {
         storageUpdate(movieId, secondId);
     });
 }
 
-function temping(movieId,tagId) {
-    const $getTagId = document.getElementById(tagId)
-    let openObject = getReviewObject()
+
+// 리뷰탬핑로직
+function temping(movieId, tagId) {
+    const $getTagId = document.getElementById(tagId);
+    let openObject = getReviewObject();
+    let temp_html = ``
+    $getTagId.innerHTML = temp_html
+    let i = 0;
     openObject[movieId].forEach((getObject) => {
-        for (let getKey in getObject) {
-            `
-            <div class="card border-secondary mb-3">
-                <div class="card-header">
-                    <h5>이름</h5>
-                </div>
-                <div class="card-body text-secondary">
-                    <p class="card-text">리뷰</p>
-                    <button type="button" class="btn btn-dark">삭제</button>
-                    <button type="button" class="btn btn-secondary">수정</button>
-                </div>
+        let temp_rivew = `
+        <div class="card border-secondary mb-3">
+            <div class="card-header">
+                <h5>${getObject["name"]}이름</h5>
             </div>
-            `
-        }
+            <div class="card-body text-secondary">
+                <p class="card-text">${getObject["text"]}리뷰</p>
+                <button id="deletebtr" type="button" data-idx="${i}" data-pw"${getObject["password"]}" class="btn btn-dark">삭제</button>
+                <button id="updatebtr" type="button" data-idx="${i}" data-pw"${getObject["password"]}" class="btn btn-secondary">수정</button>
+            </div>
+        </div>
+        `;
+        $getTagId.insertAdjacentHTML('beforeend', temp_rivew);
+        i++;
     })
 }
 
