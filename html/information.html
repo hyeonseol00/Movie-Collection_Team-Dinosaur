@@ -2,52 +2,51 @@
 	<div class="container">
 		<div class="d-flex align-items-center justify-content-center">
 			<ul class="nav col-auto me-auto justify-content-center">
-				<a href="#" class="nav-link px-2 text-white">영화 모음집</a>
+				<li><a href="#" class="nav-link px-2 text-white">영화 모음집</a></li>
 			</ul>
+
+			<div class="text-end">
+				<button id="exit-button" type="button" class="btn btn-outline-danger me-2">나가기</button>
+			</div>
 		</div>
 	</div>
 </header>
-<div class="sangsae">
-	<div id="movie-poster" class="poster-frame"></div>
-	<div class="form-floating">
-		<textarea class="form-control" placeholder="Leave a comment here" id="title-textarea"></textarea>
-		<label for="floating-textarea">제목</label>
-	</div>
-	<div class="form-floating">
-		<textarea class="form-control" placeholder="Leave a comment here" id="release-date-textarea"></textarea>
-		<label for="floating-textarea">개봉일자</label>
-	</div>
-	<div class="form-floating">
-		<textarea class="form-control" placeholder="Leave a comment here" id="movie-id-textarea"></textarea>
-		<label for="floating-textarea">영화 ID</label>
-	</div>
-	<div class="form-floating">
-		<textarea class="form-control" placeholder="Leave a comment here" id="vote-average-textarea"></textarea>
-		<label for="floating-textarea">평균 평점</label>
-	</div>
-	<div class="form-floating">
-		<textarea class="form-control" placeholder="Leave a comment here" id="vote-count-textarea"></textarea>
-		<label for="floating-textarea">평점 수</label>
-	</div>
-	<div class="form-floating">
-		<textarea class="form-control" placeholder="Leave a comment here" id="overview-textarea"></textarea>
-		<label for="floating-textarea">영화 내용</label>
-	</div>
-</div>
-<div class="container" id="review-box">
-	<div class="container" id="inner-box">
-		<div class="input-container">
-			<input type="text" id="id-input" placeholder="ID" />
-			<input type="password" id="pw-input" placeholder="Password" />
+
+<div class="row row-cols-1 row-cols-xl-2 card-box">
+	<div class="col p-4 text-center">
+		<div class="poster-frame">
+			<img src="${docs[idx]['posterImage']}" alt="">
 		</div>
-		<div class="form-floating">
-			<input class="form-control" placeholder="Leave a comment here" id="text-input" style="height: 150px"></input>
-			<label for="floating-textarea">후기</label>
-		</div>
-		<div class="button-container">
-			<button class="edit-button">수정</button>
-			<button class="delete-button">삭제</button>
-			<button class="register-button">등록</button>
+		<br>
+		<h1>${docs[idx]['title']}</h1>
+		<h5>${docs[idx]['originalTitle']}</h5>
+		<br>
+		<p>개봉 일자 : ${docs[idx]['releaseDate']}</p>
+		<p>영화 ID : ${docs[idx]['movieId']}</p>
+		<p>평균 평점 : ${docs[idx]['voteAverage']}</p>
+		<p>평점 수 : ${docs[idx]['voteCount']}</p>
+		<p>줄거리 : <br>&emsp;${docs[idx]['overview']}</p>
+	</div>
+	<div class="col p-4 container">
+		<div id="review-box">
+			<div>
+				<h3 class="mb-3 text-center">리뷰 남기기</h3>
+				<div class="row row-cols-2">
+					<div class="form-floating mb-1">
+						<input type="email" class="form-control" placeholder="이름">
+						<label for="floatingInput">이름</label>
+					</div>
+					<div class="form-floating mb-1">
+						<input type="password" class="form-control" placeholder="비밀번호">
+						<label for="floatingInput">비밀번호</label>
+					</div>
+				</div>
+				<div class="form-floating mb-1">
+					<textarea type="text" class="form-control" placeholder="리뷰"></textarea>
+					<label for="floatingInput">리뷰</label>
+				</div>
+				<button type="button" class="btn btn-dark">등록</button>
+			</div>
 		</div>
 	</div>
 </div>
