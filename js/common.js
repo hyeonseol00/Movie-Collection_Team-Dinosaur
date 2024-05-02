@@ -149,4 +149,4 @@ function addEventListeners() {
 	});
 }
 
-export { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage, initializeQuerySelector };
+export { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage, initializeQuerySelector, pageNumber, maxPaginationButtonNumber };
