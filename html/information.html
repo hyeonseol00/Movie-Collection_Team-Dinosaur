@@ -1,0 +1,15 @@
+<div class="row row-cols-1 row-cols-xl-2">
+	<div class="col p-4 text-center poster-box">
+		<img src="${docs[idx]['posterImage']}" alt="">
+	</div>
+	<div class="col p-4">
+		<h1>${docs[idx]['title']}</h1>
+		<h5>${docs[idx]['originalTitle']}</h5>
+		<br>
+		<p>개봉 일자 : ${docs[idx]['releaseDate']}</p>
+		<p>영화 ID : ${docs[idx]['movieId']}</p>
+		<p>평균 평점 : ${docs[idx]['voteAverage']}</p>
+		<p>평점 수 : ${docs[idx]['voteCount']}</p>
+		<p>줄거리 : <br>&emsp;${docs[idx]['overview']}</p>
+	</div>
+</div>
