@@ -1,6 +1,7 @@
 import { docs } from "./fetch.js";
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
+let $body;
 let $cardsDiv;
 let $searchBox;
 let $searchButton;
@@ -15,6 +16,7 @@ const loadDocsPage = 20;
 let pageNumber = 1;
 
 function initializeQuerySelector() {
+	$body = document.querySelector("body");
 	$cardsDiv = document.querySelector("#cards");
 	$searchBox = document.getElementById("search-box");
 	$searchButton = document.getElementById("search-button");
@@ -37,7 +39,7 @@ function makeCards(searchText) {
 
 			let temp_html = `
 				<div class="col">
-					<div id="${docs[i].movieId}" class="card h-100 main-card" data-bs-toggle="modal" data-bs-target="#infoModal">
+					<div id="${docs[i].movieId}" class="card h-100 main-card">
 						<img src="${docs[i].backdropImage}" class="card-img-top" alt="...">
 						<div class="card-body">
 							<h3 class="card-title">${docs[i].title}</h3>
@@ -67,7 +69,7 @@ function makeCards(searchText) {
 }
 
 function clickedCard(movieId) {
-	$modalInneer.innerHTML = "";
+	$body.innerHTML = "";
 
 	let idx = docs.findIndex((doc) => { return doc['movieId'] == movieId; });
 
@@ -89,7 +91,7 @@ function clickedCard(movieId) {
 		</div>
 		`;
 
-	$modalInneer.insertAdjacentHTML("beforeend", temp_html);
+	$body.insertAdjacentHTML("beforeend", temp_html);
 }
 
 function inputEvent() { makeCards($searchBox.value); }
