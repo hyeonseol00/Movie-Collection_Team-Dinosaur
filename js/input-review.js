@@ -49,6 +49,7 @@ function storageUpdate(movieId, secondId) {
     } else {
         tempObject[movieId].push(userObject); // 234: [{name: "input", ...}]
         setReviewObject(tempObject);
+        console.log("==>", tempObject); //영화 아이디 누락
     };
 }
 

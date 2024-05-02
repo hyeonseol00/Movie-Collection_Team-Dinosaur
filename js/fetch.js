@@ -17,6 +17,7 @@ async function getDocs(start, end) {
 			const response = await fetchDocs.json();
 
 			response['results'].forEach((doc) => {
+				console.log(doc); //MD 확인중
 				docs.push({
 					backdropImage: "https://image.tmdb.org/t/p/w400" + doc['backdrop_path'],
 					posterImage: "https://image.tmdb.org/t/p/w400" + doc['poster_path'],
