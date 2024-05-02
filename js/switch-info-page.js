@@ -1,5 +1,8 @@
 import { addEventListeners, initializeQuerySelector, loadPaginationButtonState, makeCards, maxPaginationButtonNumber, pageNumber } from "./common.js";
 
+let $exitButton;
+let $updateButton;
+
 async function fetchHtmlAsText(url) {
 	return await (await fetch(url)).text();
 }
@@ -9,16 +12,20 @@ async function importPage(target) {
 }
 
 function initInformationPage() {
-	let $exitButton = document.querySelector("#exit-button");
+	$exitButton = document.querySelector("#exit-button");
+	$updateButton = document.querySelector("#update-button");
 
 	$exitButton.addEventListener('click', (event) => {
 		event.preventDefault();
 		backToMainPage();
 	});
+	$updateButton.addEventListener("click", (event) => {
+		event.preventDefault();
+	});
 }
 
 function setPaginationButtonNumber() {
-	let $pageLinkButton = document.getElementsByClassName("page-link");
+	const $pageLinkButton = document.getElementsByClassName("page-link");
 	let count = (pageNumber - pageNumber % maxPaginationButtonNumber) + 1;
 
 	if (pageNumber % maxPaginationButtonNumber == 0)
