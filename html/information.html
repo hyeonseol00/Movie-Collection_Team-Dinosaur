@@ -20,23 +20,27 @@
 	</div>
 	<div class="col p-4 container">
 		<div id="review-box" class="mb-3">
-			<div>
-				<h3 class="mb-3 text-center">리뷰 남기기</h3>
-				<div class="row row-cols-2">
-					<div class="form-floating mb-1">
+			<h3 class="mb-3 text-center">리뷰 남기기</h3>
+			<div class="row row-cols-2">
+				<div class="col">
+					<div class="form-floating mb-3">
 						<input type="email" class="form-control" placeholder="이름">
 						<label for="floatingInput">이름</label>
 					</div>
-					<div class="form-floating mb-1">
+				</div>
+				<div class="col">
+					<div class="form-floating mb-3">
 						<input type="password" class="form-control" placeholder="비밀번호">
 						<label for="floatingInput">비밀번호</label>
 					</div>
 				</div>
-				<div class="form-floating mb-1">
-					<textarea type="text" class="form-control" placeholder="리뷰"></textarea>
-					<label for="floatingInput">리뷰</label>
-				</div>
-				<button type="button" class="btn btn-dark">등록</button>
+			</div>
+			<div class="form-floating mb-3">
+				<textarea id="review-textarea" type="text" class="form-control" placeholder="리뷰"></textarea>
+				<label for="floatingInput">리뷰</label>
+			</div>
+			<div class="d-grid dflex justify-content-end">
+				<button id="post-button" type="button" class="btn btn-dark">등록</button>
 			</div>
 		</div>
 		<div>
@@ -46,8 +50,10 @@
 				</div>
 				<div class="card-body text-secondary">
 					<p class="card-text">리뷰</p>
-					<button type="button" class="btn btn-dark">삭제</button>
-					<button type="button" class="btn btn-secondary">수정</button>
+					<div class="d-flex gap-2 justify-content-end">
+						<button type="button" class="btn btn-secondary">수정</button>
+						<button type="button" class="btn btn-dark">삭제</button>
+					</div>
 				</div>
 			</div>
 			<div class="card border-secondary mb-3">
@@ -56,8 +62,10 @@
 				</div>
 				<div class="card-body text-secondary">
 					<p class="card-text">리뷰</p>
-					<button type="button" class="btn btn-dark">삭제</button>
-					<button type="button" class="btn btn-secondary">수정</button>
+					<div class="d-flex gap-2 justify-content-end">
+						<button type="button" class="btn btn-secondary">수정</button>
+						<button type="button" class="btn btn-dark">삭제</button>
+					</div>
 				</div>
 			</div>
 		</div>
