@@ -34,7 +34,9 @@ function makeCards(searchText) {
 	for (let i = searchText == "" ? (pageNumber - 1) * maxCardNumberInPage : 0; i < docs.length; i++) {
 		if (docs[i]['title'].toLowerCase().indexOf(searchText) !== -1 || searchText === "") {
 			let tempOverview = docs[i].overview.slice(0, maxOverviewStringLength);
-			let overviewText = tempOverview.length > 0 ? tempOverview : "한글 줄거리가 등록되지 않은 영화 입니다.";
+
+			if (tempOverview.length <= 0)
+				tempOverview = "한글 줄거리가 등록되지 않은 영화입니다.";
 
 			if (tempOverview.length >= maxOverviewStringLength - 1)
 				tempOverview += "...";
@@ -46,7 +48,6 @@ function makeCards(searchText) {
 						<div class="card-body">
 							<h3 class="card-title">${docs[i].title}</h3>
 							<p class="card-text">${tempOverview}</p>
-							<p class="card-text">${overviewText}</p>
 						</div>
 						<div class="card-footer">
 							<small class="text-body-secondary">평점 : ${docs[i].voteAverage}</small>
@@ -94,7 +95,7 @@ async function clickedCard(movieId) {
 			`;
 
 	$posterFrame.insertAdjacentHTML("beforeend", temp_html);
-	
+
 	initInformationPage();
 }
 
