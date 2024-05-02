@@ -74,7 +74,7 @@ header {
 	border-radius: 5px;
 }
 
-.Sangsae {
+.sangsae {
 	width: 50vw;
 	float: left;
 	padding: 30px;
@@ -90,11 +90,11 @@ header {
 	height: 400px;
 }
 
-#overviewTextarea {
+#overview-textarea {
 	height: 300px;
 }
 
-#reviewbox {
+#review-box {
 	width: 46vw;
 	height: 1000px;
 	float: right;
@@ -129,6 +129,6 @@ header {
 	display: grid;
 }
 
-#textInput {
+#text-input {
 	margin-top: -25px;
 }
