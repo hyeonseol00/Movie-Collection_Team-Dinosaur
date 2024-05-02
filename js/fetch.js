@@ -1,7 +1,6 @@
 import { makeReviewObjectInLocalStorage } from "./common-local-storage.js";
 
 let docs = new Array();
-const loadDocsPage = 20; // API에서 받아올 때 데이터 양은 페이지 당 20으로 고정. 그러므로 총 Docs 수가 아닌 Docs 페이지 수를 정의
 
 const options = {
 	method: 'GET',
@@ -11,9 +10,9 @@ const options = {
 	}
 };
 
-async function getDocs() {
+async function getDocs(start, end) {
 	try {
-		for (let i = 1; i <= loadDocsPage; i++) {
+		for (let i = start; i <= end; i++) {
 			const fetchDocs = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=${i}`, options);
 			const response = await fetchDocs.json();
 
@@ -36,4 +35,4 @@ async function getDocs() {
 	catch (err) { console.error(err) };
 }
 
-export { docs, getDocs, loadDocsPage };
+export { docs, getDocs };
