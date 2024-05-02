@@ -1,5 +1,6 @@
 import { docs } from "./fetch.js";
 import { importPage, initInformationPage } from "./switch-info-page.js";
+import { uploadBtr, temping } from "./input-review.js";// MD수정코드
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
 let $body;
@@ -76,7 +77,7 @@ async function clickedCard(movieId) {
 	await importPage("html/information.html");
 
 	const $posterFrame = document.querySelector("#poster-frame");
-
+	
 	let idx = docs.findIndex((doc) => { return doc['movieId'] == movieId; });
 
 	let temp_html = `
@@ -95,7 +96,8 @@ async function clickedCard(movieId) {
 			`;
 
 	$posterFrame.insertAdjacentHTML("beforeend", temp_html);
-
+	uploadBtr(movieId, "uploadbrt", "reviw"); // MD수정 코드
+	temping(movieId, "rivew-borderbox"); // MD수정 코드
 	initInformationPage();
 }
 

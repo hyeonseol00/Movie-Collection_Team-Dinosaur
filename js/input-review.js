@@ -4,10 +4,10 @@ import { getReviewObject, setReviewObject } from "./common-local-storage.js";
 function inputReview(inputId) { //idInput
     const $inputId = document.getElementById(inputId);
     const madevalue = $inputId.value;//input 내용
-    if (madevalue === "") {
-        return "defind8792"
+    if (madevalue.trim() !== "") {
+        return madevalue;
     } else {
-        return madevalue
+        return "defind8792";
     };
 }
 
@@ -68,6 +68,7 @@ function uploadBtr(movieId, brtId, secondId) {
 function temping(movieId, tagId) {
     const $getTagId = document.getElementById(tagId);
     let openObject = getReviewObject();
+    if (openObject[movieId] === "[]") {
     let temp_html = ``
     $getTagId.innerHTML = temp_html
     let i = 0;
@@ -87,9 +88,10 @@ function temping(movieId, tagId) {
         $getTagId.insertAdjacentHTML('beforeend', temp_rivew);
         i++;
     })
+    }
 }
 
 
 
-export {  };
+export { uploadBtr, temping };
 
