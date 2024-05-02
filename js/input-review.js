@@ -64,11 +64,22 @@ function updateBtr(movieId, brtId, secondId) {
 }
 
 function temping(movieId,tagId) {
-    const getTagId = document.getElementById(tagId)
+    const $getTagId = document.getElementById(tagId)
     let openObject = getReviewObject()
     openObject[movieId].forEach((getObject) => {
         for (let getKey in getObject) {
-            
+            `
+            <div class="card border-secondary mb-3">
+                <div class="card-header">
+                    <h5>이름</h5>
+                </div>
+                <div class="card-body text-secondary">
+                    <p class="card-text">리뷰</p>
+                    <button type="button" class="btn btn-dark">삭제</button>
+                    <button type="button" class="btn btn-secondary">수정</button>
+                </div>
+            </div>
+            `
         }
     })
 }
