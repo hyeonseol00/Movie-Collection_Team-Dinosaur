@@ -104,6 +104,12 @@ header {
 	height: 100px;
 }
 
+#review-card-box {
+	max-height: 800px;
+	border-radius: 10px;
+	border: 2px solid black;
+	overflow-y: scroll; 
+}
 /* 
 .sangsae {
 	width: 50vw;
