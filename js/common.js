@@ -1,4 +1,5 @@
 import { docs } from "./fetch.js";
+import { initInformationPage } from "./switch-info-page.js";
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
 let $body;
@@ -74,6 +75,7 @@ function clickedCard(movieId) {
 	let idx = docs.findIndex((doc) => { return doc['movieId'] == movieId; });
 
 	let temp_html = `
+		<button id="exit-button" type="button" class="btn btn-outline-danger me-2">나가기</button>
 		<div class="row row-cols-1 row-cols-xl-2">
 			<div class="col p-4 text-center poster-box">
 				<img src="${docs[idx]['posterImage']}" alt="">
@@ -92,6 +94,7 @@ function clickedCard(movieId) {
 		`;
 
 	$body.insertAdjacentHTML("beforeend", temp_html);
+	initInformationPage();
 }
 
 function inputEvent() { makeCards($searchBox.value); }
