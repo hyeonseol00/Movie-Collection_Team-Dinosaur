@@ -30,72 +30,44 @@
         </div>
       </div>
     </header>
+    <!-- prettier-ignore -->
     <div class="Sangsae">
       <div id="moviePoster" class="poster-frame"></div>
-      <!-- 여기에 이미지 정보 받기 -->
       <div class="form-floating">
-        <textarea
-          class="form-control"
-          placeholder="Leave a comment here"
-          id="titleTextarea"
-        ></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="titleTextarea"></textarea>
         <label for="floatingTextarea">제목</label>
       </div>
       <div class="form-floating">
-        <textarea
-          class="form-control"
-          placeholder="Leave a comment here"
-          id="releaseDateTextarea"
-        ></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="releaseDateTextarea"></textarea>
         <label for="floatingTextarea">개봉일자</label>
       </div>
       <div class="form-floating">
-        <textarea
-          class="form-control"
-          placeholder="Leave a comment here"
-          id="movieIdTextarea"
-        ></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="movieIdTextarea"></textarea>
         <label for="floatingTextarea">영화 ID</label>
       </div>
       <div class="form-floating">
-        <textarea
-          class="form-control"
-          placeholder="Leave a comment here"
-          id="voteAverageTextarea"
-        ></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="voteAverageTextarea"></textarea>
         <label for="floatingTextarea">평균 평점</label>
       </div>
       <div class="form-floating">
-        <textarea
-          class="form-control"
-          placeholder="Leave a comment here"
-          id="voteCountTextarea"
-        ></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="voteCountTextarea"></textarea>
         <label for="floatingTextarea">평점 수</label>
       </div>
       <div class="form-floating">
-        <textarea
-          class="form-control"
-          placeholder="Leave a comment here"
-          id="overviewTextarea"
-        ></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="overviewTextarea"></textarea>
         <label for="floatingTextarea">영화 내용</label>
       </div>
     </div>
-    <div class="reviewbox">
-      <div class="inner-box">
+    <div class="container" id="reviewbox">
+      <div class="container" id="inner-box">
         <div class="input-container">
           <input type="text" id="idInput" placeholder="ID" />
           <input type="password" id="pwInput" placeholder="Password" />
         </div>
+        <!-- prettier-ignore -->
         <div class="form-floating">
-          <textarea
-            class="form-control"
-            placeholder="Leave a comment here"
-            id="reviewTextarea"
-            style="height: 130px"
-          ></textarea>
-          <label for="floatingTextarea2">후기</label>
+          <input class="form-control" placeholder="Leave a comment here" id="textInput" style="height: 150px"></input>
+          <label for="floatingTextarea">후기</label>
         </div>
         <div class="button-container">
           <button class="edit-button">수정</button>

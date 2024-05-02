@@ -78,6 +78,9 @@ header {
   width: 50vw;
   float: left;
   padding: 30px;
+  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
 }
 
 .poster-frame {
@@ -86,30 +89,21 @@ header {
   width: 100%;
   height: 400px;
 }
+
 #overviewTextarea {
   height: 300px;
 }
-.reviewbox {
-  width: 48vw;
+
+#reviewbox {
+  width: 46vw;
   height: 1000px;
   float: right;
   padding: 30px;
   border-radius: 10px;
   border: 2px solid black;
   margin-top: 27px;
-  margin-right: 10px;
-}
-.register-button {
-  bottom: 10px;
-  right: 10px;
-}
-
-.input-container {
-  margin-bottom: 20px;
-}
-
-.input-container input {
-  margin-right: 10px;
+  flex-direction: column;
+  display: grid;
 }
 
 .button-container {
@@ -124,10 +118,17 @@ header {
   margin-left: 10px;
 }
 
-.inner-box {
-  min-height: 250px;
+#inner-box {
+  aspect-ratio: 1 / 1;
+  aspect-ratio: 1;
+  max-height: 250px;
   border-radius: 10px;
   border: 1px solid black;
   position: relative;
   padding: 10px;
+  display: grid;
+}
+
+#textInput {
+  margin-top: -25px;
 }
