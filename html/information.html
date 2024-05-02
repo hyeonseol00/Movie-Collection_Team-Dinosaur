@@ -13,22 +13,22 @@
 </header>
 
 <div class="row row-cols-1 row-cols-xl-2 card-box">
-	<div class="col p-4 text-center">
+	<div class="col p-4">
 		<div class="poster-frame">
-			<img src="${docs[idx]['posterImage']}" alt="">
+			<img src="https://image.tmdb.org/t/p/w400/qV9BQZdiM8foEzDz0Ag5hGWE5qM.jpg" alt="">
 		</div>
 		<br>
-		<h1>${docs[idx]['title']}</h1>
-		<h5>${docs[idx]['originalTitle']}</h5>
+		<h1>영화 제목</h1>
+		<h5>영화 원어 제목</h5>
 		<br>
-		<p>개봉 일자 : ${docs[idx]['releaseDate']}</p>
-		<p>영화 ID : ${docs[idx]['movieId']}</p>
-		<p>평균 평점 : ${docs[idx]['voteAverage']}</p>
-		<p>평점 수 : ${docs[idx]['voteCount']}</p>
-		<p>줄거리 : <br>&emsp;${docs[idx]['overview']}</p>
+		<p>개봉 일자 : 2000-00-00</p>
+		<p>영화 ID : 000</p>
+		<p>평균 평점 : 9.99</p>
+		<p>평점 수 : 10</p>
+		<p>줄거리 : <br>&emsp;이 영화의 줄거리입니다.이 영화의 줄거리입니다.이 영화의 줄거리입니다.이 영화의 줄거리입니다.이 영화의 줄거리입니다.이 영화의 줄거리입니다.이 영화의 줄거리입니다.</p>
 	</div>
 	<div class="col p-4 container">
-		<div id="review-box">
+		<div id="review-box" class="mb-3">
 			<div>
 				<h3 class="mb-3 text-center">리뷰 남기기</h3>
 				<div class="row row-cols-2">
@@ -46,6 +46,28 @@
 					<label for="floatingInput">리뷰</label>
 				</div>
 				<button type="button" class="btn btn-dark">등록</button>
+			</div>
+		</div>
+		<div>
+			<div class="card border-secondary mb-3">
+				<div class="card-header">
+					<h5>이름</h5>
+				</div>
+				<div class="card-body text-secondary">
+					<p class="card-text">리뷰</p>
+					<button type="button" class="btn btn-dark">삭제</button>
+					<button type="button" class="btn btn-secondary">수정</button>
+				</div>
+			</div>
+			<div class="card border-secondary mb-3">
+				<div class="card-header">
+					<h5>이름</h5>
+				</div>
+				<div class="card-body text-secondary">
+					<p class="card-text">리뷰</p>
+					<button type="button" class="btn btn-dark">삭제</button>
+					<button type="button" class="btn btn-secondary">수정</button>
+				</div>
 			</div>
 		</div>
 	</div>
