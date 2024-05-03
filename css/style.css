@@ -121,3 +121,10 @@ h5 {
 	border: 2px solid black;
 	overflow-y: scroll; 
 }
+
+.pagination {
+	--bs-pagination-bg: #808080;
+	--bs-pagination-color: white;
+	--bs-pagination-active-bg: #303030;
+	--bs-pagination-disabled-bg: #555555;
+}
