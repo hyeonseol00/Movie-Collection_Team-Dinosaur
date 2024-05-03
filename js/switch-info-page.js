@@ -3,6 +3,7 @@ import { addEventListeners, initializeQuerySelector, loadPaginationButtonState, 
 
 let $exitButton;
 let $updateButton;
+let $modalUpdateButton;
 
 async function fetchHtmlAsText(url) {
 	return await (await fetch(url)).text();
@@ -14,16 +15,22 @@ async function importPage(target) {
 
 function initInformationPage() {
 	$exitButton = document.querySelector("#exit-button");
-	$updateButton = document.querySelector(".update-button");
+	$updateButton = document.getElementsByClassName("update-button");
+	$modalUpdateButton = document.querySelector("#modal-update-button");
+
+	console.log($updateButton);
 
 	$exitButton.addEventListener('click', (event) => {
 		event.preventDefault();
 		backToMainPage();
 	});
-	$updateButton.addEventListener("click", (event) => {
-		event.preventDefault();
-		openUpdateModal(event.target.parentElement.parentElement.parentElement);
+	$updateButton.forEach(button => {
+		button.addEventListener("click", (event) => {
+			event.preventDefault();
+			openUpdateModal(event.target.parentElement.parentElement.parentElement);
+		});
 	});
+	//$modalUpdateButton
 }
 
 function setPaginationButtonNumber() {

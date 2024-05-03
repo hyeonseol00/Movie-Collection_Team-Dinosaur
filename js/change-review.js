@@ -1,6 +1,7 @@
 import { getReviewObject, setReviewObject } from "./common-local-storage.js";
 
 let $modalNameInput;
+let $modalPasswordInput;
 let $modalReviewTextarea;
 
 function changeReview(movieId, idx, name, password, text) {
@@ -15,13 +16,13 @@ function changeReview(movieId, idx, name, password, text) {
 }
 
 function openUpdateModal(review) {
-	let tempObject = getReviewObject();
-
 	$modalNameInput = document.querySelector("#modal-name-input");
+	$modalPasswordInput = document.querySelector("#modal-password-input");
 	$modalReviewTextarea = document.querySelector("#modal-review-textarea");
 
-	$modalNameInput.attr('value', review.firstElementChild.firstElementChild.innerHTML);
-	$modalReviewTextarea.html(review.lastElementChild.firstElementChild.innerHTML);
+	$modalNameInput.setAttribute('value', review.firstElementChild.firstElementChild.innerHTML);
+	$modalPasswordInput.setAttribute('value', "");
+	$modalReviewTextarea.innerHTML = review.lastElementChild.firstElementChild.innerHTML;
 }
 
 export { changeReview, openUpdateModal };

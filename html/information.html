@@ -19,6 +19,7 @@
 		</div>
 	</div>
 	<div class="col p-4 container">
+		<!-- 리뷰 등록하는 부분 -->
 		<div id="review-box" class="mb-3">
 			<h3 class="mb-3 text-center">리뷰 남기기</h3>
 			<div class="row row-cols-2">
@@ -44,6 +45,7 @@
 			</div>
 		</div>
 		<div>
+			<!-- 여기가 카드 등록 착착 될 부분 -->
 			<div class="card border-secondary mb-3" data-idx="0" data-password="1234">
 				<div class="card-header">
 					<h5>이름 테스트 입니다.</h5>
@@ -56,14 +58,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="card border-secondary mb-3">
+			<div class="card border-secondary mb-3" data-idx="1" data-password="1234">
 				<div class="card-header">
 					<h5>이름</h5>
 				</div>
 				<div class="card-body text-secondary">
 					<p class="card-text">리뷰</p>
 					<div class="d-flex gap-2 justify-content-end">
-						<button type="button" class="btn btn-secondary">수정</button>
+						<button type="button" class="update-button btn btn-secondary" data-bs-toggle="modal" data-bs-target="#update-modal">수정</button>
 						<button type="button" class="btn btn-dark">삭제</button>
 					</div>
 				</div>
@@ -72,6 +74,8 @@
 	</div>
 </div>
 
+
+<!-- 수정 모달 창 -->
 <div class="modal fade" id="update-modal" tabindex="-1" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
@@ -97,7 +101,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-				<button type="button" class="btn btn-primary">수정</button>
+				<button id="modal-update-button" type="button" class="btn btn-primary">수정</button>
 			</div>
 		</div>
 	</div>
