@@ -116,7 +116,7 @@ h5 {
 
 #review-card-box {
 	background-color: #303030;
-	max-height: 800px;
+	height: 800px;
 	border-radius: 10px;
 	border: 2px solid black;
 	overflow-y: scroll; 

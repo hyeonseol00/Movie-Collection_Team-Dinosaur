@@ -65,7 +65,7 @@ function uploadBtr(movieId, brtId, secondId) {
 	const $getbrt = document.getElementById(brtId);
 	$getbrt.addEventListener("click", (event) => {
 		storageUpdate(movieId, secondId);
-		temping(movieId, "rivew-borderbox");
+		temping(movieId, "review-card-box");
 	});
 }
 
