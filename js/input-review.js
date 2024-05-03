@@ -1,6 +1,5 @@
 import { openUpdateModal } from "./change-review.js";
 import { getReviewObject, setReviewObject } from "./common-local-storage.js";
-import { initInformationPage } from "./switch-info-page.js";
 
 // 해당 html id를 통해 value 값을 가져옴
 function inputReview(inputId) { //idInput
@@ -107,4 +106,4 @@ function addUpdateDeleteEvent(idx) {
 	});
 }
 
-export { uploadBtr };
+export { uploadBtr, temping };
