@@ -24,7 +24,7 @@ function changeReview() {
 	$modalPasswordInput.value = "";
 
 	setReviewObject(tempObject);
-	temping(movieId, "rivew-borderbox");
+	temping(movieId, "review-card-box");
 }
 
 function openUpdateModal(review) {
