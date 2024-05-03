@@ -6,14 +6,15 @@
 	font-weight: 400;
 	font-style: normal;
 }
-
+body {
+	background-color: #303030;
+}
 header {
 	position: sticky;
 	top: 0;
 	z-index: 900;
 	background-color: #303030;
 }
-
 h5 {
 	margin: 0px;
 }
@@ -87,18 +88,36 @@ h5 {
 #poster-frame {
 	border: 2px solid black;
 	padding: 30px;
+	color: white; 
+	background-color: #303030;
 }
 
 #review-box {
+	background-color: #303030;
 	padding: 30px;
 	border-radius: 10px;
 	border: 2px solid black;
+	color: black
+}
+#modal-review-textarea {
+	height: 200px;
+}
+#save-review {
+	color: white;
 }
 
 #textrivew {
 	height: 100px;
 }
 
-#modal-review-textarea {
-	height: 200px;
+#input-review-box {
+	color: black;
+}
+
+#review-card-box {
+	background-color: #303030;
+	max-height: 800px;
+	border-radius: 10px;
+	border: 2px solid black;
+	overflow-y: scroll; 
 }
