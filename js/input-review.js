@@ -1,4 +1,5 @@
 import { getReviewObject, setReviewObject } from "./common-local-storage.js";
+import { initInformationPage } from "./switch-info-page.js";
 
 // 해당 html id를 통해 value 값을 가져옴
 function inputReview(inputId) { //idInput
@@ -61,6 +62,7 @@ function uploadBtr(movieId, brtId, secondId) {
     $getbrt.addEventListener("click", (event) => {
         storageUpdate(movieId, secondId);
         temping(movieId, "rivew-borderbox");
+		initInformationPage();
     });
 }
 
