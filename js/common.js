@@ -1,5 +1,6 @@
 import { docs } from "./fetch.js";
 import { importPage, initInformationPage } from "./switch-info-page.js";
+import { uploadBtr, temping } from "./input-review.js";// MD수정코드
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
 let $body;
@@ -76,7 +77,7 @@ async function clickedCard(movieId) {
 	await importPage("html/information.html");
 
 	const $posterFrame = document.querySelector("#poster-frame");
-
+	
 	let idx = docs.findIndex((doc) => { return doc['movieId'] == movieId; });
 
 	let temp_html = `
@@ -88,14 +89,15 @@ async function clickedCard(movieId) {
 			<h5>${docs[idx]['originalTitle']}</h5>
 			<br>
 			<p>개봉 일자 : ${docs[idx]['releaseDate']}</p>
-			<p>영화 ID : ${docs[idx]['movieId']}</p>
+			<p id="movie-id" data-movie-id="${docs[idx]['movieId']}">영화 ID : ${docs[idx]['movieId']}</p>
 			<p>평균 평점 : ${docs[idx]['voteAverage']}</p>
 			<p>평점 수 : ${docs[idx]['voteCount']}</p>
 			<p>줄거리 : <br>&emsp;${docs[idx]['overview']}</p>
 			`;
 
 	$posterFrame.insertAdjacentHTML("beforeend", temp_html);
-
+	uploadBtr(movieId, "uploadbrt", "rivew"); // MD수정 코드
+	temping(movieId, "rivew-borderbox") // MD수정 코드
 	initInformationPage();
 }
 
