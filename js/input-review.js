@@ -54,7 +54,7 @@ function storageUpdate(movieId, secondId) {
 		tempObject[movieId].push(userObject); // 234: [{name: "input", ...}]
 		setReviewObject(tempObject);
 		alert("리뷰가 등록되었습니다.") //리뷰등록안내 새로 기입
-		temping(movieId, "rivew-borderbox");
+		temping(movieId, "review-card-box");
 		reviewScroll(movieId, userObject); // MD 수정중
 	};
 }

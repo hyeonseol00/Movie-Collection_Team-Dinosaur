@@ -96,8 +96,8 @@ async function clickedCard(movieId) {
 			`;
 
 	$posterFrame.insertAdjacentHTML("beforeend", temp_html);
-	uploadBtr(movieId, "uploadbrt", "rivew");
-	temping(movieId, "rivew-borderbox")
+	uploadBtr(movieId, "uploadbrt", "rivew"); // MD수정 코드
+	temping(movieId, "review-card-box") // MD수정 코드
 	initInformationPage();
 }
 
