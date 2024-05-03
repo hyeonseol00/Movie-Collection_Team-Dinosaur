@@ -1,4 +1,4 @@
-import { openUpdateModal } from "./change-review.js";
+import { changeReview, openUpdateModal } from "./change-review.js";
 import { addEventListeners, initializeQuerySelector, loadPaginationButtonState, makeCards, maxPaginationButtonNumber, pageNumber } from "./common.js";
 
 let $exitButton;
@@ -18,8 +18,6 @@ function initInformationPage() {
 	$updateButton = document.getElementsByClassName("update-button");
 	$modalUpdateButton = document.querySelector("#modal-update-button");
 
-	console.log($updateButton);
-
 	$exitButton.addEventListener('click', (event) => {
 		event.preventDefault();
 		backToMainPage();
@@ -30,7 +28,10 @@ function initInformationPage() {
 			openUpdateModal(event.target.parentElement.parentElement.parentElement);
 		});
 	});
-	//$modalUpdateButton
+	$modalUpdateButton.addEventListener('click', event => {
+		event.preventDefault();
+		changeReview();
+	});
 }
 
 function setPaginationButtonNumber() {
