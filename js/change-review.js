@@ -14,14 +14,14 @@ function changeReview(movieId, idx, name, password, text) {
 	setReviewObject(tempObject);
 }
 
-function openUpdateModal(movieId, idx) {
+function openUpdateModal(review) {
 	let tempObject = getReviewObject();
 
 	$modalNameInput = document.querySelector("#modal-name-input");
 	$modalReviewTextarea = document.querySelector("#modal-review-textarea");
 
-	$modalNameInput.attr('value', tempObject[movieId][idx].name);
-	$modalReviewTextarea.html(tempObject[movieId][idx].text);
+	$modalNameInput.attr('value', review.firstElementChild.firstElementChild.innerHTML);
+	$modalReviewTextarea.html(review.lastElementChild.firstElementChild.innerHTML);
 }
 
 export { changeReview, openUpdateModal };

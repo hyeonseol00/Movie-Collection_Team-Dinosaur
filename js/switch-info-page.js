@@ -1,3 +1,4 @@
+import { openUpdateModal } from "./change-review.js";
 import { addEventListeners, initializeQuerySelector, loadPaginationButtonState, makeCards, maxPaginationButtonNumber, pageNumber } from "./common.js";
 
 let $exitButton;
@@ -13,7 +14,7 @@ async function importPage(target) {
 
 function initInformationPage() {
 	$exitButton = document.querySelector("#exit-button");
-	$updateButton = document.querySelector("#update-button");
+	$updateButton = document.querySelector(".update-button");
 
 	$exitButton.addEventListener('click', (event) => {
 		event.preventDefault();
@@ -21,6 +22,7 @@ function initInformationPage() {
 	});
 	$updateButton.addEventListener("click", (event) => {
 		event.preventDefault();
+		openUpdateModal(event.target.parentElement.parentElement.parentElement);
 	});
 }
 
