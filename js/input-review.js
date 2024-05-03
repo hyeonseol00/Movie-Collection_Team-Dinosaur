@@ -54,6 +54,8 @@ function storageUpdate(movieId, secondId) {
 		tempObject[movieId].push(userObject); // 234: [{name: "input", ...}]
 		setReviewObject(tempObject);
 		alert("리뷰가 등록되었습니다.") //리뷰등록안내 새로 기입
+		//탬핑 여기도 나쁘지 않을지도?
+		reviewScroll(movieId, userObject)
 	};
 }
 
@@ -80,9 +82,9 @@ function temping(movieId, tagId) {
 	};
 	$getTagId.innerHTML = ``;
 	let i = 0;
-	openObject[movieId].forEach((getObject) => {
+	openObject[movieId].forEach((getObject) => {  /* 데이터스크롤 idx 추가 => data-scroll="${i}" */
 		let temp_rivew = `
-        <div class="card border-secondary mb-3" data-idx="${i}" data-password="${getObject["password"]}">
+        <div class="card border-secondary mb-3" data-scroll="${i}" data-idx="${i}" data-password="${getObject["password"]}">
             <div class="card-header">
                 <h5>${getObject["name"]}</h5>
             </div>
@@ -108,6 +110,20 @@ function addUpdateDeleteEvent(idx) {
 		event.preventDefault();
 		openUpdateModal(event.target.parentElement.parentElement.parentElement);
 	});
+}
+// MD 스크롤 기능 추가 작업중
+// userWrite: 리뷰작성을 모아 만든 객체 ex: {name: HMD, ...}
+function reviewScroll(movieId, userWrite) {
+	const getlocal = getReviewObject()
+	let where = getlocal[movieId]
+	const getIdx = userWrite.map((Write) => (where.indexOf(Write)))
+	let $scrollId = document.querySelector(`[data-scroll="${getIdx}"]`);
+	$scrollId.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+    inline: "nearest",
+  });
+
 }
 
 export { uploadBtr, temping };
