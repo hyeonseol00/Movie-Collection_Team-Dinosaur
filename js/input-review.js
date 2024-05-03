@@ -77,14 +77,16 @@ function temping(movieId, tagId) {
     let i = 0;
     openObject[movieId].forEach((getObject) => {
         let temp_rivew = `
-        <div class="card border-secondary mb-3">
+        <div class="card border-secondary mb-3" data-idx="${i}" data-password="${getObject["password"]}">
             <div class="card-header">
                 <h5>${getObject["name"]}</h5>
             </div>
             <div class="card-body text-secondary">
                 <p class="card-text">${getObject["text"]}</p>
-                <button id="deletebtr" type="button" data-idx="${i}" data-pw"${getObject["password"]}" class="btn btn-dark">삭제</button>
-                <button id="updatebtr" type="button" data-idx="${i}" data-pw"${getObject["password"]}" class="btn btn-secondary">수정</button>
+				<div class="d-flex gap-2 justify-content-end">
+					<button type="button" data-idx="${i}" data-pw"${getObject["password"]}" class="update-button btn btn-secondary" data-bs-toggle="modal" data-bs-target="#update-modal">수정</button>
+					<button type="button" data-idx="${i}" data-pw"${getObject["password"]}" class="btn btn-dark">삭제</button>
+				</div>
             </div>
         </div>
         `;
