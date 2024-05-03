@@ -54,8 +54,8 @@ function storageUpdate(movieId, secondId) {
 		tempObject[movieId].push(userObject); // 234: [{name: "input", ...}]
 		setReviewObject(tempObject);
 		alert("리뷰가 등록되었습니다.") //리뷰등록안내 새로 기입
-		//탬핑 여기도 나쁘지 않을지도?
-		reviewScroll(movieId, userObject)
+		temping(movieId, "rivew-borderbox");
+		reviewScroll(movieId, userObject); // MD 수정중
 	};
 }
 
@@ -67,8 +67,7 @@ function uploadBtr(movieId, brtId, secondId) {
 	const $getbrt = document.getElementById(brtId);
 	$getbrt.addEventListener("click", (event) => {
 		storageUpdate(movieId, secondId);
-		temping(movieId, "rivew-borderbox");
-	});
+	});// 탬핑 삭제 후 storageUpdate함수로 이동
 }
 
 
@@ -114,16 +113,23 @@ function addUpdateDeleteEvent(idx) {
 // MD 스크롤 기능 추가 작업중
 // userWrite: 리뷰작성을 모아 만든 객체 ex: {name: HMD, ...}
 function reviewScroll(movieId, userWrite) {
-	const getlocal = getReviewObject()
-	let where = getlocal[movieId]
-	const getIdx = userWrite.map((Write) => (where.indexOf(Write)))
-	let $scrollId = document.querySelector(`[data-scroll="${getIdx}"]`);
-	$scrollId.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-    inline: "nearest",
-  });
-
+	const getlocal = getReviewObject();
+	let where = getlocal[movieId];
+	let findarray = [];
+	let userstring = [];
+	userstring.push((JSON.stringify(userWrite)));
+	where.forEach((inarray) => {
+		findarray.push(JSON.stringify(inarray));
+	});
+	if (findarray.find(findit => findit === userstring[0])) {
+		let getIdx = userstring.map((string) => (findarray.indexOf(string)));
+		let $scrollId = document.querySelector(`[data-scroll="${getIdx}"]`);
+		$scrollId.scrollIntoView({
+		behavior: "smooth",
+		block: "start",
+		inline: "nearest",
+		});
+	};
 }
 
 export { uploadBtr, temping };
