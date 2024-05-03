@@ -15,13 +15,15 @@ function changeReview() {
 
 	if ($modalPasswordInput.value == tempObject[movieId][idx].password) {
 		tempObject[movieId][idx]['name'] = $modalNameInput.value;
-		tempObject[movieId][idx]['text'] = $modalReviewTextarea.innerHTML;
+		tempObject[movieId][idx]['text'] = $modalReviewTextarea.value;
+		alert("수정되었습니다.");
 	}
 	else
 		alert("비밀번호가 다릅니다!");
 
-	setReviewObject(tempObject);
+	$modalPasswordInput.value = "";
 
+	setReviewObject(tempObject);
 	temping(movieId, "rivew-borderbox");
 }
 
@@ -33,9 +35,9 @@ function openUpdateModal(review) {
 	$movieId = document.querySelector("#movie-id");
 
 	$updateModal.dataset.reviewIndex = review.dataset.idx;
-	$modalNameInput.setAttribute('value', review.firstElementChild.firstElementChild.innerHTML);
-	$modalPasswordInput.removeAttribute('value');
-	$modalReviewTextarea.innerHTML = review.lastElementChild.firstElementChild.innerHTML;
+	$modalNameInput.value = review.firstElementChild.firstElementChild.innerHTML;
+	$modalPasswordInput.value = "";
+	$modalReviewTextarea.value = review.lastElementChild.firstElementChild.innerHTML;
 }
 
 export { changeReview, openUpdateModal };
