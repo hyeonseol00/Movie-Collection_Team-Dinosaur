@@ -1,6 +1,5 @@
 import { openUpdateModal } from "./change-review.js";
 import { getReviewObject, setReviewObject } from "./common-local-storage.js";
-import { initInformationPage } from "./switch-info-page.js";
 
 // 해당 html id를 통해 value 값을 가져옴
 function inputReview(inputId) { //idInput
@@ -22,11 +21,11 @@ function madeObject(secondinputId) {
 	let answerObject = {};//name: "input", ...
 	firstinputId.forEach((first) => {
 		pullinputId.push(first + secondinputId); //결과 : idInput
-	})
+	});
 	for (let i = 0; i < firstinputId.length; i++) {
 		let pull = pullinputId[i];
 		answerObject[objectKey[i]] = inputReview(pull);
-	}
+	};
 	for (let j = 0; j < firstinputId.length; j++) {
 		let catchValue = answerObject[objectKey[j]]
 		if (catchValue === "empty8792") {
@@ -34,12 +33,15 @@ function madeObject(secondinputId) {
 			catchError = 8792
 			break
 		}
-	}
+	};
 	if (catchError === 8792) {
 		return 8792
 	} else {
+		for (let i = 0; i < pullinputId.length; i++) {             //input 초기화 새로 기입
+			document.getElementById(pullinputId[i]).value = '';    //input 초기화 새로 기입
+		};
 		return answerObject //name: "input", ...
-	}
+	};
 }
 
 // localstorage로 객체내용 update 하는 로직
@@ -51,6 +53,7 @@ function storageUpdate(movieId, secondId) {
 	} else {
 		tempObject[movieId].push(userObject); // 234: [{name: "input", ...}]
 		setReviewObject(tempObject);
+		alert("리뷰가 등록되었습니다.") //리뷰등록안내 새로 기입
 	};
 }
 
@@ -107,4 +110,4 @@ function addUpdateDeleteEvent(idx) {
 	});
 }
 
-export { uploadBtr };
+export { uploadBtr, temping };
