@@ -12,13 +12,16 @@
 	</div>
 </header>
 
-<div class="card-box row row-cols-1 row-cols-xl-2">
+<!-- 테스트 주석입니다. -->
+
+<div class="card-box row row-cols-1 row-cols-lg-2">
 	<div class="col p-4">
 		<div id="poster-frame">
 			<!-- common.js/clickedCard()에서 추가 -->
 		</div>
 	</div>
 	<div class="col p-4 container">
+		<!-- 리뷰 등록하는 부분 -->
 		<div id="review-box" class="mb-3">
 			<div>
 				<h3 class="mb-3 text-center">리뷰 남기기</h3>
@@ -41,6 +44,39 @@
 		</div>
 		<div id="rivew-borderbox">
 <!--수정 단계-->
+		</div>
+	</div>
+</div>
+
+
+<!-- 수정 모달 창 -->
+<div class="modal fade" id="update-modal" tabindex="-1" aria-hidden="true" data-review-index="">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5">리뷰 수정</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-floating mb-2">
+						<input id="modal-name-input" type="email" class="form-control" placeholder="이름">
+						<label for="floatingInput">이름</label>
+					</div>
+					<div class="form-floating mb-2">
+						<input id="modal-password-input" type="password" class="form-control" placeholder="비밀번호">
+						<label for="floatingInput">비밀번호</label>
+					</div>
+					<div class="form-floating mb-2">
+						<textarea id="modal-review-textarea" type="text" class="form-control" placeholder="리뷰"></textarea>
+						<label for="floatingInput">리뷰</label>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+				<button id="modal-update-button" type="button" class="btn btn-primary">수정</button>
+			</div>
 		</div>
 	</div>
 </div>
