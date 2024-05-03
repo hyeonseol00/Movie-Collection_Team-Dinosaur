@@ -1,4 +1,5 @@
 import { getReviewObject, setReviewObject } from "./common-local-storage.js";
+import { temping } from "./input-review.js";
 
 let $updateModal;
 let $modalNameInput;
@@ -12,17 +13,16 @@ function changeReview() {
 	let movieId = $movieId.dataset.movieId;
 	let idx = $updateModal.dataset.reviewIndex;
 
-	console.log(movieId, idx, tempObject[movieId][idx]);
-
 	if ($modalPasswordInput.value == tempObject[movieId][idx].password) {
-		tempObject[movieId][idx].name = $modalNameInput.value;
-		tempObject[movieId][idx].text = $modalReviewTextarea.innerHTML;
-		$updateModal.setAttribute("area-hidden", true);
+		tempObject[movieId][idx]['name'] = $modalNameInput.value;
+		tempObject[movieId][idx]['text'] = $modalReviewTextarea.innerHTML;
 	}
 	else
 		alert("비밀번호가 다릅니다!");
 
 	setReviewObject(tempObject);
+
+	temping(movieId, "rivew-borderbox");
 }
 
 function openUpdateModal(review) {
@@ -34,7 +34,7 @@ function openUpdateModal(review) {
 
 	$updateModal.dataset.reviewIndex = review.dataset.idx;
 	$modalNameInput.setAttribute('value', review.firstElementChild.firstElementChild.innerHTML);
-	$modalPasswordInput.setAttribute('value', "");
+	$modalPasswordInput.removeAttribute('value');
 	$modalReviewTextarea.innerHTML = review.lastElementChild.firstElementChild.innerHTML;
 }
 
