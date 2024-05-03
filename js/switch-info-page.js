@@ -15,18 +15,11 @@ async function importPage(target) {
 
 function initInformationPage() {
 	$exitButton = document.querySelector("#exit-button");
-	$updateButton = document.getElementsByClassName("update-button");
 	$modalUpdateButton = document.querySelector("#modal-update-button");
 
 	$exitButton.addEventListener('click', (event) => {
 		event.preventDefault();
 		backToMainPage();
-	});
-	$updateButton.forEach(button => {
-		button.addEventListener("click", (event) => {
-			event.preventDefault();
-			openUpdateModal(event.target.parentElement.parentElement.parentElement);
-		});
 	});
 	$modalUpdateButton.addEventListener('click', event => {
 		event.preventDefault();

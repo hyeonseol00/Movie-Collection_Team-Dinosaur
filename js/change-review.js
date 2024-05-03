@@ -10,14 +10,16 @@ function changeReview() {
 	let tempObject = getReviewObject();
 
 	let movieId = $movieId.dataset.movieId;
-	let idx = $modalNameInput.dataset.reviewIndex;
+	let idx = $updateModal.dataset.reviewIndex;
+
+	console.log(movieId, idx, tempObject[movieId][idx]);
 
 	if ($modalPasswordInput.value == tempObject[movieId][idx].password) {
 		tempObject[movieId][idx].name = $modalNameInput.value;
 		tempObject[movieId][idx].text = $modalReviewTextarea.innerHTML;
 		$updateModal.setAttribute("area-hidden", true);
 	}
-	else 
+	else
 		alert("비밀번호가 다릅니다!");
 
 	setReviewObject(tempObject);
