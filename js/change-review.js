@@ -34,7 +34,8 @@ function openUpdateModal(review) {
 
 	$updateModal.dataset.reviewIndex = review.dataset.idx;
 	$modalNameInput.setAttribute('value', review.firstElementChild.firstElementChild.innerHTML);
-	$modalPasswordInput.setAttribute('value', "");
+	console.log($modalPasswordInput.getAttribute('value'));
+	$modalPasswordInput.setAttribute('value', null);
 	$modalReviewTextarea.innerHTML = review.lastElementChild.firstElementChild.innerHTML;
 }
 
