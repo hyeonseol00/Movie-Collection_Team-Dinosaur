@@ -89,7 +89,7 @@ async function clickedCard(movieId) {
 			<h5>${docs[idx]['originalTitle']}</h5>
 			<br>
 			<p>개봉 일자 : ${docs[idx]['releaseDate']}</p>
-			<p>영화 ID : ${docs[idx]['movieId']}</p>
+			<p id="movie-id" data-movie-id="${docs[idx]['movieId']}">영화 ID : ${docs[idx]['movieId']}</p>
 			<p>평균 평점 : ${docs[idx]['voteAverage']}</p>
 			<p>평점 수 : ${docs[idx]['voteCount']}</p>
 			<p>줄거리 : <br>&emsp;${docs[idx]['overview']}</p>

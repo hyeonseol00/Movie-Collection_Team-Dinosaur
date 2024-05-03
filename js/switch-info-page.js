@@ -1,4 +1,9 @@
+import { changeReview, openUpdateModal } from "./change-review.js";
 import { addEventListeners, initializeQuerySelector, loadPaginationButtonState, makeCards, maxPaginationButtonNumber, pageNumber } from "./common.js";
+
+let $exitButton;
+let $updateButton;
+let $modalUpdateButton;
 
 async function fetchHtmlAsText(url) {
 	return await (await fetch(url)).text();
@@ -9,16 +14,21 @@ async function importPage(target) {
 }
 
 function initInformationPage() {
-	let $exitButton = document.querySelector("#exit-button");
+	$exitButton = document.querySelector("#exit-button");
+	$modalUpdateButton = document.querySelector("#modal-update-button");
 
 	$exitButton.addEventListener('click', (event) => {
 		event.preventDefault();
 		backToMainPage();
 	});
+	$modalUpdateButton.addEventListener('click', event => {
+		event.preventDefault();
+		changeReview();
+	});
 }
 
 function setPaginationButtonNumber() {
-	let $pageLinkButton = document.getElementsByClassName("page-link");
+	const $pageLinkButton = document.getElementsByClassName("page-link");
 	let count = (pageNumber - pageNumber % maxPaginationButtonNumber) + 1;
 
 	if (pageNumber % maxPaginationButtonNumber == 0)
