@@ -1,4 +1,5 @@
 import { getReviewObject, setReviewObject } from "./common-local-storage.js";
+import { temping } from "./input-review.js";
 
 let $updateModal;
 let $modalNameInput;
@@ -12,17 +13,18 @@ function changeReview() {
 	let movieId = $movieId.dataset.movieId;
 	let idx = $updateModal.dataset.reviewIndex;
 
-	console.log(movieId, idx, tempObject[movieId][idx]);
-
 	if ($modalPasswordInput.value == tempObject[movieId][idx].password) {
-		tempObject[movieId][idx].name = $modalNameInput.value;
-		tempObject[movieId][idx].text = $modalReviewTextarea.innerHTML;
-		$updateModal.setAttribute("area-hidden", true);
+		tempObject[movieId][idx]['name'] = $modalNameInput.value;
+		tempObject[movieId][idx]['text'] = $modalReviewTextarea.value;
+		alert("수정되었습니다.");
 	}
 	else
 		alert("비밀번호가 다릅니다!");
 
+	$modalPasswordInput.value = "";
+
 	setReviewObject(tempObject);
+	temping(movieId, "rivew-borderbox");
 }
 
 function openUpdateModal(review) {
@@ -33,9 +35,9 @@ function openUpdateModal(review) {
 	$movieId = document.querySelector("#movie-id");
 
 	$updateModal.dataset.reviewIndex = review.dataset.idx;
-	$modalNameInput.setAttribute('value', review.firstElementChild.firstElementChild.innerHTML);
-	$modalPasswordInput.setAttribute('value', "");
-	$modalReviewTextarea.innerHTML = review.lastElementChild.firstElementChild.innerHTML;
+	$modalNameInput.value = review.firstElementChild.firstElementChild.innerHTML;
+	$modalPasswordInput.value = "";
+	$modalReviewTextarea.value = review.lastElementChild.firstElementChild.innerHTML;
 }
 
 export { changeReview, openUpdateModal };
