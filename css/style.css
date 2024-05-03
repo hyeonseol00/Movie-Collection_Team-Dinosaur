@@ -15,6 +15,9 @@ header {
 	z-index: 900;
 	background-color: #303030;
 }
+h5 {
+	margin: 0px;
+}
 
 .card-box {
 	max-width: 1600px;
@@ -96,7 +99,9 @@ header {
 	border: 2px solid black;
 	color: black
 }
-
+#modal-review-textarea {
+	height: 200px;
+}
 #save-review {
 	color: white;
 }
