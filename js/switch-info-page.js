@@ -21,6 +21,9 @@ function setPaginationButtonNumber() {
 	let $pageLinkButton = document.getElementsByClassName("page-link");
 	let count = (pageNumber - pageNumber % maxPaginationButtonNumber) + 1;
 
+	if (pageNumber % maxPaginationButtonNumber == 0)
+		count -= maxPaginationButtonNumber;
+
 	$pageLinkButton.forEach((button) => {
 		if (button.innerHTML != "이전" && button.innerHTML != "다음") {
 			button.innerHTML = count++;
