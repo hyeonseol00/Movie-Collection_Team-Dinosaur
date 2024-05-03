@@ -2,7 +2,8 @@
 	<div class="container">
 		<div class="d-flex align-items-center justify-content-center">
 			<ul class="nav col-auto me-auto justify-content-center">
-				<li><a href="#" class="nav-link px-2 text-white">영화 모음집</a></li>
+				<li><a href="#" class="nav-link px-2 text-white"><img src="/source/dinosaur1.png" alt="파비콘" style="width: 32px; height: 32px;"></a></li>
+				<li><a href="#" class="nav-link px-2 text-white"></a></li>
 			</ul>
 
 			<div class="text-end">
@@ -14,13 +15,13 @@
 
 <div class="card-box row row-cols-1 row-cols-lg-2">
 	<div class="col p-4">
-		<div id="poster-frame" style="color: white; background-color: #303030;" >
+		<div id="poster-frame">
 			<!-- common.js/clickedCard()에서 추가 -->
 		</div>
 	</div>
 	<div class="col p-4 container">
 		<div id="review-box" class="mb-3">
-			<h3 class="mb-3 text-center">리뷰 남기기</h3>
+			<h3 class="mb-3 text-center" id="save-review">리뷰 남기기</h3>
 			<div class="row row-cols-2">
 				<div class="col">
 					<div class="form-floating mb-3">
@@ -40,7 +41,7 @@
 				<label for="floatingInput">리뷰</label>
 			</div>
 			<div class="d-grid dflex justify-content-end">
-				<button id="post-button" type="button" class="btn btn-dark">등록</button>
+				<button id="post-button" type="button" class="btn btn-primary">등록</button>
 			</div>
 		</div>
 		<div class="col p-4 container" id="review-card-box">
@@ -51,8 +52,8 @@
 				<div class="card-body text-secondary">
 					<p class="card-text">리뷰</p>
 					<div class="d-flex gap-2 justify-content-end">
-						<button type="button" class="btn btn-secondary">수정</button>
-						<button type="button" class="btn btn-dark">삭제</button>
+						<button type="button" class="btn btn-success">수정</button>
+						<button type="button" class="btn btn-danger">삭제</button>
 					</div>
 				</div>
 			</div>
@@ -64,8 +65,8 @@
 					<div class="card-body text-secondary">
 						<p class="card-text">리뷰</p>
 						<div class="d-flex gap-2 justify-content-end">
-							<button type="button" class="btn btn-secondary">수정</button>
-							<button type="button" class="btn btn-dark">삭제</button>
+							<button type="button" class="btn btn-success">수정</button>
+							<button type="button" class="btn btn-danger">삭제</button>
 						</div>
 					</div>
 				</div>
@@ -76,8 +77,8 @@
 					<div class="card-body text-secondary">
 						<p class="card-text">리뷰</p>
 						<div class="d-flex gap-2 justify-content-end">
-							<button type="button" class="btn btn-secondary">수정</button>
-							<button type="button" class="btn btn-dark">삭제</button>
+							<button type="button" class="btn btn-success">수정</button>
+							<button type="button" class="btn btn-danger">삭제</button>
 						</div>
 					</div>
 				</div>
@@ -88,8 +89,8 @@
 					<div class="card-body text-secondary">
 						<p class="card-text">리뷰</p>
 						<div class="d-flex gap-2 justify-content-end">
-							<button type="button" class="btn btn-secondary">수정</button>
-							<button type="button" class="btn btn-dark">삭제</button>
+							<button type="button" class="btn btn-success">수정</button>
+							<button type="button" class="btn btn-danger">삭제</button>
 						</div>
 					</div>
 				</div>
@@ -100,8 +101,8 @@
 					<div class="card-body text-secondary">
 						<p class="card-text">리뷰</p>
 						<div class="d-flex gap-2 justify-content-end">
-							<button type="button" class="btn btn-secondary">수정</button>
-							<button type="button" class="btn btn-dark">삭제</button>
+							<button type="button" class="btn btn-success">수정</button>
+							<button type="button" class="btn btn-danger">삭제</button>
 						</div>
 					</div>
 				</div>
@@ -112,8 +113,8 @@
 					<div class="card-body text-secondary">
 						<p class="card-text">리뷰</p>
 						<div class="d-flex gap-2 justify-content-end">
-							<button type="button" class="btn btn-secondary">수정</button>
-							<button type="button" class="btn btn-dark">삭제</button>
+							<button type="button" class="btn btn-success">수정</button>
+							<button type="button" class="btn btn-danger">삭제</button>
 						</div>
 					</div>
 				</div>
@@ -124,8 +125,8 @@
 					<div class="card-body text-secondary">
 						<p class="card-text">리뷰</p>
 						<div class="d-flex gap-2 justify-content-end">
-							<button type="button" class="btn btn-secondary">수정</button>
-							<button type="button" class="btn btn-dark">삭제</button>
+							<button type="button" class="btn btn-success">수정</button>
+							<button type="button" class="btn btn-danger">삭제</button>
 						</div>
 					</div>
 				</div>
@@ -136,8 +137,8 @@
 					<div class="card-body text-secondary">
 						<p class="card-text">리뷰</p>
 						<div class="d-flex gap-2 justify-content-end">
-							<button type="button" class="btn btn-secondary">수정</button>
-							<button type="button" class="btn btn-dark">삭제</button>
+							<button type="button" class="btn btn-success">수정</button>
+							<button type="button" class="btn btn-danger">삭제</button>
 						</div>
 					</div>
 				</div>
@@ -148,8 +149,8 @@
 					<div class="card-body text-secondary">
 						<p class="card-text">리뷰</p>
 						<div class="d-flex gap-2 justify-content-end">
-							<button type="button" class="btn btn-secondary">수정</button>
-							<button type="button" class="btn btn-dark">삭제</button>
+							<button type="button" class="btn btn-success">수정</button>
+							<button type="button" class="btn btn-danger">삭제</button>
 						</div>
 					</div>
 				</div>
@@ -160,8 +161,8 @@
 					<div class="card-body text-secondary">
 						<p class="card-text">리뷰</p>
 						<div class="d-flex gap-2 justify-content-end">
-							<button type="button" class="btn btn-secondary">수정</button>
-							<button type="button" class="btn btn-dark">삭제</button>
+							<button type="button" class="btn btn-success">수정</button>
+							<button type="button" class="btn btn-danger">삭제</button>
 						</div>
 					</div>
 				</div>

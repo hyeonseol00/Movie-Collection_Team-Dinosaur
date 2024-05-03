@@ -7,7 +7,7 @@
 	font-style: normal;
 }
 body {
-	background-color: black;
+	background-color: #303030;
 }
 header {
 	position: sticky;
@@ -85,28 +85,32 @@ header {
 #poster-frame {
 	border: 2px solid black;
 	padding: 30px;
-	/* 
-	width: 100%;
-	height: 400px; */
+	color: white; 
+	background-color: #303030;
 }
 
-#review-box {/* 
-	width: 46vw;
-	height: 1000px;
-	float: right;
-	display: grid;
-	margin-top: 27px; */
-
+#review-box {
+	background-color: #303030;
 	padding: 30px;
 	border-radius: 10px;
 	border: 2px solid black;
+	color: black
+}
+
+#save-review {
+	color: white;
 }
 
 #review-textarea {
 	height: 100px;
 }
 
+#input-review-box {
+	color: black;
+}
+
 #review-card-box {
+	background-color: #303030;
 	max-height: 800px;
 	border-radius: 10px;
 	border: 2px solid black;
