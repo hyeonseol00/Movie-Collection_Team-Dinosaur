@@ -31,7 +31,7 @@ function openDeleteModal(review) {
     $movieId = document.querySelector("#movie-id");
 
     $deleteModal.dataset.reviewIndex = review.dataset.idx;
-    $modalPasswordInput.value = "";
+    $deleteModalPasswordInput.value = "";
 }
 
 export { deleteReview, openDeleteModal };
