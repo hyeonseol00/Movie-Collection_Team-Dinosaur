@@ -21,8 +21,7 @@ function deleteReview() {
     alert("삭제가 완료되었습니다.")
     $deleteModalPasswordInput.value = ""; 
     // 닫는 기능 추가
-    temping(movieId, "rivew-borderbox");
-
+    temping(movieId, "review-card-box");
 }
 
 function openDeleteModal(review) {
@@ -31,7 +30,7 @@ function openDeleteModal(review) {
     $movieId = document.querySelector("#movie-id");
 
     $deleteModal.dataset.reviewIndex = review.dataset.idx;
-    $modalPasswordInput.value = "";
+    $deleteModalPasswordInput.value = "";
 }
 
 export { deleteReview, openDeleteModal };
