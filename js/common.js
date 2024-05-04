@@ -1,5 +1,6 @@
 import { docs } from "./fetch.js";
-import { initInformationPage } from "./switch-info-page.js";
+import { importPage, initInformationPage } from "./switch-info-page.js";
+import { uploadBtr, temping } from "./input-review.js";// MD수정코드
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
 let $body;
@@ -34,7 +35,10 @@ function makeCards(searchText) {
 	for (let i = searchText == "" ? (pageNumber - 1) * maxCardNumberInPage : 0; i < docs.length; i++) {
 		if (docs[i]['title'].toLowerCase().indexOf(searchText) !== -1 || searchText === "") {
 			let tempOverview = docs[i].overview.slice(0, maxOverviewStringLength);
-			
+
+			if (tempOverview.length <= 0)
+				tempOverview = "한글 줄거리가 등록되지 않은 영화입니다.";
+
 			if (tempOverview.length >= maxOverviewStringLength - 1)
 				tempOverview += "...";
 
@@ -69,31 +73,31 @@ function makeCards(searchText) {
 	}
 }
 
-function clickedCard(movieId) {
-	$body.innerHTML = "";
+async function clickedCard(movieId) {
+	await importPage("html/information.html");
 
+	const $posterFrame = document.querySelector("#poster-frame");
+	
 	let idx = docs.findIndex((doc) => { return doc['movieId'] == movieId; });
 
 	let temp_html = `
-		<button id="exit-button" type="button" class="btn btn-outline-danger me-2">나가기</button>
-		<div class="row row-cols-1 row-cols-xl-2">
 			<div class="col p-4 text-center poster-box">
 				<img src="${docs[idx]['posterImage']}" alt="">
 			</div>
-			<div class="col p-4">
-				<h1>${docs[idx]['title']}</h1>
-				<h5>${docs[idx]['originalTitle']}</h5>
-				<br>
-				<p>개봉 일자 : ${docs[idx]['releaseDate']}</p>
-				<p>영화 ID : ${docs[idx]['movieId']}</p>
-				<p>평균 평점 : ${docs[idx]['voteAverage']}</p>
-				<p>평점 수 : ${docs[idx]['voteCount']}</p>
-				<p>줄거리 : <br>&emsp;${docs[idx]['overview']}</p>
-			</div>
-		</div>
-		`;
+			<br>
+			<h1>${docs[idx]['title']}</h1>
+			<h5>${docs[idx]['originalTitle']}</h5>
+			<br>
+			<p>개봉 일자 : ${docs[idx]['releaseDate']}</p>
+			<p id="movie-id" data-movie-id="${docs[idx]['movieId']}">영화 ID : ${docs[idx]['movieId']}</p>
+			<p>평균 평점 : ${docs[idx]['voteAverage']}</p>
+			<p>평점 수 : ${docs[idx]['voteCount']}</p>
+			<p>줄거리 : <br>&emsp;${docs[idx]['overview']}</p>
+			`;
 
-	$body.insertAdjacentHTML("beforeend", temp_html);
+	$posterFrame.insertAdjacentHTML("beforeend", temp_html);
+	uploadBtr(movieId, "uploadbrt", "rivew"); // MD수정 코드
+	temping(movieId, "rivew-borderbox") // MD수정 코드
 	initInformationPage();
 }
 
