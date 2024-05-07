@@ -6,15 +6,18 @@
 	font-weight: 400;
 	font-style: normal;
 }
+
 body {
 	background-color: #303030;
 }
+
 header {
 	position: sticky;
 	top: 0;
 	z-index: 900;
 	background-color: #303030;
 }
+
 h5 {
 	margin: 0px;
 }
@@ -86,9 +89,10 @@ h5 {
 }
 
 #poster-frame {
-	border: 2px solid black;
+	border: 2px solid white;
+	border-radius: 10px;
 	padding: 30px;
-	color: white; 
+	color: white;
 	background-color: #303030;
 }
 
@@ -96,12 +100,13 @@ h5 {
 	background-color: #303030;
 	padding: 30px;
 	border-radius: 10px;
-	border: 2px solid black;
-	color: black
+	border: 2px solid white;
 }
+
 #modal-review-textarea {
 	height: 200px;
 }
+
 #save-review {
 	color: white;
 }
@@ -110,21 +115,30 @@ h5 {
 	height: 100px;
 }
 
+/* 
 #input-review-box {
 	color: black;
 }
+ */
 
 #review-card-box {
 	background-color: #303030;
 	height: 800px;
 	border-radius: 10px;
-	border: 2px solid black;
-	overflow-y: scroll; 
+	border: 2px solid white;
+	overflow-y: scroll;
 }
 
 .pagination {
 	--bs-pagination-bg: #808080;
 	--bs-pagination-color: white;
+	/* 
+	--bs-pagination-hover-bg: #555555;
+	*/
+	--bs-pagination-focus-bg: #303030;
+	--bs-pagination-focus-color: white;
+
 	--bs-pagination-active-bg: #303030;
+
 	--bs-pagination-disabled-bg: #555555;
 }
