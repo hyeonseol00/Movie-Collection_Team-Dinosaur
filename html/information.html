@@ -20,9 +20,9 @@
 			<!-- common.js/clickedCard()에서 추가 -->
 		</div>
 	</div>
-	<div class="col p-4 container">
+	<div id="wrap-review-column" class="col p-4 container row row-cols-1">
 		<!-- 리뷰 등록하는 부분 -->
-		<div id="review-box" class="mb-3">
+		<div id="review-box" class="col mb-3">
 			<h3 class="mb-3 text-center" id="save-review">리뷰 남기기</h3>
 			<div class="row row-cols-2">
 				<div class="col">
@@ -43,11 +43,11 @@
 				<label for="textrivew">리뷰</label>
 			</div>
 			<div class="d-grid dflex justify-content-end">
-				<button id="uploadbrt" type="button" class="btn btn-dark">등록</button>
+				<button id="uploadbrt" type="button" class="btn btn-primary">등록</button>
 			</div>
 		</div>
-		<div class="col p-4 container" id="review-card-box">
-<!--수정 단계-->
+		<div id="review-card-box" class="col p-4">
+			<!--수정 단계-->
 		</div>
 	</div>
 </div>
@@ -72,7 +72,8 @@
 						<label for="floatingInput">비밀번호</label>
 					</div>
 					<div class="form-floating mb-2">
-						<textarea id="modal-review-textarea" type="text" class="form-control" placeholder="리뷰"></textarea>
+						<textarea id="modal-review-textarea" type="text" class="form-control"
+							placeholder="리뷰"></textarea>
 						<label for="floatingInput">리뷰</label>
 					</div>
 				</form>
@@ -108,4 +109,3 @@
 		</div>
 	</div>
 </div>
-
