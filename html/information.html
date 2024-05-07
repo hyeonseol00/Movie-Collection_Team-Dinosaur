@@ -46,7 +46,7 @@
 				<button id="uploadbrt" type="button" class="btn btn-dark">등록</button>
 			</div>
 		</div>
-		<div id="rivew-borderbox">
+		<div class="col p-4 container" id="review-card-box">
 <!--수정 단계-->
 		</div>
 	</div>
@@ -84,3 +84,28 @@
 		</div>
 	</div>
 </div>
+
+<!-- 삭제 모달 창 -->
+<div class="modal fade" id="delete-modal" tabindex="-1" aria-hidden="true" data-review-index="">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5">리뷰 삭제</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-floating mb-2">
+						<input id="modal-delete-password-input" type="password" class="form-control" placeholder="비밀번호">
+						<label for="floatingInput">비밀번호</label>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+				<button id="modal-delete-button" type="button" class="btn btn-primary">삭제</button>
+			</div>
+		</div>
+	</div>
+</div>
+

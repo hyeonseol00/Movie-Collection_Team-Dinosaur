@@ -58,7 +58,7 @@ function makeCards(searchText) {
 				`;
 
 			$cardsDiv.insertAdjacentHTML("beforeend", temp_html);
-
+			
 			const $card = document.getElementById(docs[i].movieId);
 			$card.addEventListener('click', (event) => {
 				event.preventDefault();
@@ -97,7 +97,7 @@ async function clickedCard(movieId) {
 
 	$posterFrame.insertAdjacentHTML("beforeend", temp_html);
 	uploadBtr(movieId, "uploadbrt", "rivew"); // MD수정 코드
-	temping(movieId, "rivew-borderbox") // MD수정 코드
+	temping(movieId, "review-card-box") // MD수정 코드
 	initInformationPage();
 }
 

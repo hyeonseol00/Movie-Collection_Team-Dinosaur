@@ -1,9 +1,11 @@
+import { deleteReview } from "./delete-review.js"
 import { changeReview, openUpdateModal } from "./change-review.js";
 import { addEventListeners, initializeQuerySelector, loadPaginationButtonState, makeCards, maxPaginationButtonNumber, pageNumber } from "./common.js";
 
 let $exitButton;
 let $updateButton;
 let $modalUpdateButton;
+let $modalDeleteButton;
 
 async function fetchHtmlAsText(url) {
 	return await (await fetch(url)).text();
@@ -16,6 +18,7 @@ async function importPage(target) {
 function initInformationPage() {
 	$exitButton = document.querySelector("#exit-button");
 	$modalUpdateButton = document.querySelector("#modal-update-button");
+	$modalDeleteButton = document.querySelector("#modal-delete-button");
 
 	$exitButton.addEventListener('click', (event) => {
 		event.preventDefault();
@@ -25,6 +28,10 @@ function initInformationPage() {
 		event.preventDefault();
 		changeReview();
 	});
+	$modalDeleteButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        deleteReview();
+    });
 }
 
 function setPaginationButtonNumber() {
