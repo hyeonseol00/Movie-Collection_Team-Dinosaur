@@ -44,21 +44,21 @@ function makeCards(searchText) {
 
 			let temp_html = `
 				<div class="col">
-					<div id="${docs[i].movieId}" class="card h-100 main-card">
+					<div id="${docs[i].movieId}" class="card text-bg-secondary h-100 main-card">
 						<img src="${docs[i].backdropImage}" class="card-img-top" alt="...">
 						<div class="card-body">
 							<h3 class="card-title">${docs[i].title}</h3>
 							<p class="card-text">${tempOverview}</p>
 						</div>
-						<div class="card-footer">
-							<small class="text-body-secondary">평점 : ${docs[i].voteAverage}</small>
+						<div class="card-footer text-bg-dark">
+							<small>평점 : ${docs[i].voteAverage}</small>
 						</div>
 					</div>
 				</div>
 				`;
 
 			$cardsDiv.insertAdjacentHTML("beforeend", temp_html);
-
+			
 			const $card = document.getElementById(docs[i].movieId);
 			$card.addEventListener('click', (event) => {
 				event.preventDefault();
