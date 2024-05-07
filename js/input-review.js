@@ -1,4 +1,5 @@
 import { openUpdateModal } from "./change-review.js";
+import { openDeleteModal } from "./delete-review.js"
 import { getReviewObject, setReviewObject } from "./common-local-storage.js";
 
 // 해당 html id를 통해 value 값을 가져옴
@@ -90,7 +91,7 @@ function temping(movieId, tagId) {
                 <p class="card-text">${getObject["text"]}</p>
 				<div class="d-flex gap-2 justify-content-end">
 					<button type="button" data-idx="${i}" data-pw"${getObject["password"]}" class="update-button btn btn-secondary" data-bs-toggle="modal" data-bs-target="#update-modal">수정</button>
-					<button type="button" data-idx="${i}" data-pw"${getObject["password"]}" class="btn btn-dark">삭제</button>
+					<button type="button" data-idx="${i}" data-pw"${getObject["password"]}" class="delete-button btn btn-dark" data-bs-toggle="modal" data-bs-target="#delete-modal">삭제</button>
 				</div>
             </div>
         </div>
@@ -103,11 +104,17 @@ function temping(movieId, tagId) {
 
 function addUpdateDeleteEvent(idx) {
 	let $updateButton = document.getElementsByClassName("update-button");
+	let $deleteButton = document.getElementsByClassName("delete-button");
 
 	$updateButton[idx].addEventListener("click", (event) => {
-		event.preventDefault();
-		openUpdateModal(event.target.parentElement.parentElement.parentElement);
-	});
+        event.preventDefault();
+        openUpdateModal(event.target.parentElement.parentElement.parentElement);
+    });
+
+	$deleteButton[idx].addEventListener("click", (event) => {
+        event.preventDefault();
+        openDeleteModal(event.target.parentElement.parentElement.parentElement);
+    });
 }
 
 export { uploadBtr, temping };

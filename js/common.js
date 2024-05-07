@@ -58,7 +58,7 @@ function makeCards(searchText) {
 				`;
 
 			$cardsDiv.insertAdjacentHTML("beforeend", temp_html);
-
+			
 			const $card = document.getElementById(docs[i].movieId);
 			$card.addEventListener('click', (event) => {
 				event.preventDefault();
