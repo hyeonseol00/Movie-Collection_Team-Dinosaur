@@ -22,6 +22,10 @@ h5 {
 	margin: 0px;
 }
 
+textarea {
+	resize: none;
+}
+
 .card-box {
 	max-width: 1600px;
 	margin: 20px auto 20px auto;
@@ -96,13 +100,6 @@ h5 {
 	background-color: #303030;
 }
 
-#review-box {
-	background-color: #303030;
-	padding: 30px;
-	border-radius: 10px;
-	border: 2px solid white;
-}
-
 #modal-review-textarea {
 	height: 200px;
 }
@@ -115,18 +112,26 @@ h5 {
 	height: 100px;
 }
 
-/* 
-#input-review-box {
-	color: black;
+#wrap-review-column{
+	flex-direction: column;
+	margin: 0px 0px 0px 0px;
 }
- */
+
+#review-box {
+	background-color: #303030;
+	padding: 30px;
+	border-radius: 10px;
+	border: 2px solid white;
+	height: 340px;
+}
 
 #review-card-box {
 	background-color: #303030;
-	height: 800px;
+ 	height: 500px;
 	border-radius: 10px;
 	border: 2px solid white;
 	overflow-y: scroll;
+	flex-grow: 1;
 }
 
 .pagination {
