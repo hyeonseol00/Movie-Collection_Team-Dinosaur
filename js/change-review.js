@@ -9,7 +9,6 @@ let $movieId;
 
 function changeReview() {
 	let tempObject = getReviewObject();
-
 	let movieId = $movieId.dataset.movieId;
 	let idx = $updateModal.dataset.reviewIndex;
 
