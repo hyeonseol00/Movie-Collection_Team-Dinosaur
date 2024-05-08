@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 
 * {
 	font-family: "Noto Sans KR", sans-serif;
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
+}
+
+body {
+	background-color: #303030;
 }
 
 header {
@@ -14,9 +18,17 @@ header {
 	background-color: #303030;
 }
 
+h5 {
+	margin: 0px;
+}
+
+textarea {
+	resize: none;
+}
+
 .card-box {
 	max-width: 1600px;
-	margin: 20px auto 20px auto;
+	margin: 0px auto 20px auto;
 	padding: 30px;
 }
 
@@ -59,8 +71,16 @@ header {
 	margin-bottom: 50px;
 }
 
-.justify-content-end {
+.pr-30 {
 	padding-right: 30px;
+}
+
+.pl-30 {
+	padding-left: 30px;
+}
+
+.dropdown {
+	flex-basis: 100px;
 }
 
 @media (max-width: 550px) {
@@ -72,4 +92,66 @@ header {
 
 .poster-box>img {
 	border-radius: 5px;
+	width: 100%;
+	max-width: 400px;
+}
+
+#exit-button {
+	color: white;
+}
+
+#poster-frame {
+	border: 2px solid white;
+	border-radius: 10px;
+	padding: 30px;
+	color: white;
+	background-color: #303030;
+}
+
+#modal-review-textarea {
+	height: 200px;
+}
+
+#save-review {
+	color: white;
+}
+
+#textreview {
+	height: 100px;
+}
+
+#wrap-review-column{
+	flex-direction: column;
+	margin: 0px 0px 0px 0px;
+}
+
+#review-box {
+	background-color: #303030;
+	padding: 30px;
+	border-radius: 10px;
+	border: 2px solid white;
+	height: 340px;
+}
+
+#review-card-box {
+	background-color: #303030;
+ 	height: 500px;
+	border-radius: 10px;
+	border: 2px solid white;
+	overflow-y: scroll;
+	flex-grow: 1;
+}
+
+.pagination {
+	--bs-pagination-bg: #808080;
+	--bs-pagination-color: white;
+	
+	/* --bs-pagination-hover-bg: #555555; */
+	
+	--bs-pagination-focus-bg: #303030;
+	--bs-pagination-focus-color: white;
+
+	--bs-pagination-active-bg: #303030;
+
+	--bs-pagination-disabled-bg: #555555;
 }

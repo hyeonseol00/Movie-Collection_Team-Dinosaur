@@ -1,0 +1,111 @@
+<header class="p-3 text-bg-dark">
+	<div class="container">
+		<div class="d-flex align-items-center justify-content-center">
+			<ul class="nav col-auto me-auto justify-content-center">
+				<li><a href="#" class="nav-link px-2 text-white"><img src="/source/dinosaur1.png" alt="파비콘"
+							style="width: 32px; height: 32px;"></a></li>
+				<li><a href="#" class="nav-link px-2 text-white"></a></li>
+			</ul>
+
+			<div class="text-end">
+				<button id="exit-button" type="button" class="btn btn-outline-danger me-2">나가기</button>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="card-box row row-cols-1 row-cols-lg-2">
+	<div class="col p-4">
+		<div id="poster-frame">
+			<!-- common.js/clickedCard()에서 추가 -->
+		</div>
+	</div>
+	<div id="wrap-review-column" class="col p-4 container row row-cols-1">
+		<!-- 리뷰 등록하는 부분 -->
+		<div id="review-box" class="col mb-3">
+			<h3 class="mb-3 text-center" id="save-review">리뷰 남기기</h3>
+			<div class="row row-cols-2">
+				<div class="col">
+					<div class="form-floating mb-3">
+						<input id="idreview" type="text" class="form-control" placeholder="이름">
+						<label for="idreview">이름</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-floating mb-3">
+						<input id="pwreview" type="password" class="form-control" placeholder="비밀번호">
+						<label for="pwreview">비밀번호</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-floating mb-3">
+				<textarea id="textreview" type="text" class="form-control" placeholder="리뷰"></textarea>
+				<label for="textreview">리뷰</label>
+			</div>
+			<div class="d-grid justify-content-end">
+				<button id="uploadbrt" type="button" class="btn btn-primary">등록</button>
+			</div>
+		</div>
+		<div id="review-card-box" class="col p-4">
+			<!-- 리뷰 카드 추가되는 공간 -->
+		</div>
+	</div>
+</div>
+
+
+<!-- 수정 모달 창 -->
+<div class="modal fade" id="update-modal" tabindex="-1" aria-hidden="true" data-review-index="">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5">리뷰 수정</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-floating mb-2">
+						<input id="modal-name-input" type="email" class="form-control" placeholder="이름">
+						<label for="floatingInput">이름</label>
+					</div>
+					<div class="form-floating mb-2">
+						<input id="modal-password-input" type="password" class="form-control" placeholder="비밀번호">
+						<label for="floatingInput">비밀번호</label>
+					</div>
+					<div class="form-floating mb-2">
+						<textarea id="modal-review-textarea" type="text" class="form-control"
+							placeholder="리뷰"></textarea>
+						<label for="floatingInput">리뷰</label>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+				<button id="modal-update-button" type="button" class="btn btn-primary">수정</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 삭제 모달 창 -->
+<div class="modal fade" id="delete-modal" tabindex="-1" aria-hidden="true" data-review-index="">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5">리뷰 삭제</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-floating mb-2">
+						<input id="modal-delete-password-input" type="password" class="form-control" placeholder="비밀번호">
+						<label for="floatingInput">비밀번호</label>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+				<button id="modal-delete-button" type="button" class="btn btn-primary">삭제</button>
+			</div>
+		</div>
+	</div>
+</div>

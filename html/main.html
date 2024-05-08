@@ -1,0 +1,63 @@
+<header class="p-3 text-bg-dark">
+	<div class="container">
+		<div class="d-flex align-items-center justify-content-center">
+			<ul class="nav col-auto me-auto justify-content-center">
+				<li><a href="#" class="nav-link px-2 text-white"><img src="/source/dinosaur1.png" alt="파비콘"
+							style="width: 32px; height: 32px;"></a></li>
+				<li><a href="#" class="nav-link px-2 text-white">
+						<h3>영화 모음집</h3>
+					</a></li>
+			</ul>
+
+			<div class="col-auto me-3">
+				<input id="search-box" type="search" class="form-control form-control-light text-bg-light"
+					placeholder="찾아보기..." aria-label="Search" autofocus>
+			</div>
+
+			<div class="text-end flex-shrink-0">
+				<button id="search-button" type="button" class="btn btn-outline-light me-2">검색</button>
+			</div>
+		</div>
+	</div>
+</header>
+
+<nav class="row row-cols-1 row-cols-md-2 pagination-top justify-content-between" aria-label="Page navigation example">
+	<div class="col dropdown pl-30 mb-3">
+		<button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">정렬</button>
+		<ul class="dropdown-menu">
+			<li><a id="sort-rating" class="dropdown-item disabled" href="#">평점순</a></li>
+			<li><a id="sort-name" class="dropdown-item disabled" href="#">이름순</a></li>
+		</ul>
+	</div>
+	<ul class="col pagination pagination-lg pr-30 justify-content-end flex-grow-1 flex-shrink-0">
+		<li class="page-item"><a class="page-link disabled" href="#">이전</a></li>
+		<li class="page-item"><a class="page-link disabled" href="#">1</a></li>
+		<li class="page-item"><a class="page-link disabled" href="#">2</a></li>
+		<li class="page-item"><a class="page-link disabled" href="#">3</a></li>
+		<li class="page-item"><a class="page-link disabled" href="#">4</a></li>
+		<li class="page-item"><a class="page-link disabled" href="#">5</a></li>
+		<li class="page-item"><a class="page-link disabled" href="#">다음</a></li>
+	</ul>
+</nav>
+
+<div class="card-box">
+	<div id="cards" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+		<!-- 카드 추가 부분 -->
+	</div>
+</div>
+
+<nav class="pagination-btm" aria-label="Page navigation example">
+	<ul class="pagination pagination-lg justify-content-center">
+		<li class="page-item"><a class="page-link disabled" href="#">이전</a></li>
+		<li class="page-item"><a class="page-link disabled" href="#">1</a></li>
+		<li class="page-item"><a class="page-link disabled" href="#">2</a></li>
+		<li class="page-item"><a class="page-link disabled" href="#">3</a></li>
+		<li class="page-item"><a class="page-link disabled" href="#">4</a></li>
+		<li class="page-item"><a class="page-link disabled" href="#">5</a></li>
+		<li class="page-item"><a class="page-link disabled" href="#">다음</a></li>
+	</ul>
+</nav>
+
+<a href="#" class="nav button-top">
+	<img src="source/topButton.png" alt="">
+</a>
