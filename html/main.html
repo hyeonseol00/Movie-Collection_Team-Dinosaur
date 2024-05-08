@@ -14,14 +14,14 @@
 					placeholder="찾아보기..." aria-label="Search" autofocus>
 			</div>
 
-			<div class="text-end">
+			<div class="text-end flex-shrink-0">
 				<button id="search-button" type="button" class="btn btn-outline-light me-2">검색</button>
 			</div>
 		</div>
 	</div>
 </header>
 
-<nav class="row row-cols-1 row-cols-lg-2 pagination-top" aria-label="Page navigation example">
+<nav class="row row-cols-1 row-cols-md-2 pagination-top justify-content-between" aria-label="Page navigation example">
 	<div class="col dropdown pl-30 mb-3">
 		<button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">정렬</button>
 		<ul class="dropdown-menu">
@@ -29,7 +29,7 @@
 			<li><a id="sort-name" class="dropdown-item" href="#">이름순</a></li>
 		</ul>
 	</div>
-	<ul class="col pagination pagination-lg justify-content-end pr-30">
+	<ul class="col pagination pagination-lg pr-30 justify-content-end flex-grow-1 flex-shrink-0">
 		<li class="page-item"><a class="page-link" href="#">이전</a></li>
 		<li class="page-item"><a class="page-link" href="#">1</a></li>
 		<li class="page-item"><a class="page-link" href="#">2</a></li>

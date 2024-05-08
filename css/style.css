@@ -79,6 +79,10 @@ textarea {
 	padding-left: 30px;
 }
 
+.dropdown {
+	flex-basis: 100px;
+}
+
 @media (max-width: 550px) {
 	.justify-content-end {
 		padding-right: 0px;
@@ -112,7 +116,7 @@ textarea {
 	color: white;
 }
 
-#textrivew {
+#textreview {
 	height: 100px;
 }
 
@@ -141,9 +145,9 @@ textarea {
 .pagination {
 	--bs-pagination-bg: #808080;
 	--bs-pagination-color: white;
-	/* 
-	--bs-pagination-hover-bg: #555555;
-	*/
+	
+	/* --bs-pagination-hover-bg: #555555; */
+	
 	--bs-pagination-focus-bg: #303030;
 	--bs-pagination-focus-color: white;
 
