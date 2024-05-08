@@ -1,6 +1,6 @@
 import { deleteReview } from "./delete-review.js"
 import { changeReview } from "./change-review.js";
-import { addEventListeners, initializeQuerySelector, loadPaginationButtonState, makeCards, maxPaginationButtonNumber, pageNumber } from "./common.js";
+import { addEventListeners, enableDropdown, initializeQuerySelector, loadPaginationButtonState, makeCards, maxPaginationButtonNumber, pageNumber } from "./common.js";
 
 let $exitButton;
 let $modalUpdateButton;
@@ -57,6 +57,7 @@ async function backToMainPage() {
 	addEventListeners();
 	setPaginationButtonNumber();
 	loadPaginationButtonState();
+	enableDropdown();
 }
 
-export { importPage, initInformationPage };
+export { importPage, initInformationPage, backToMainPage };
