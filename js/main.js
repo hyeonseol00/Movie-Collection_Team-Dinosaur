@@ -10,7 +10,7 @@ async function init() {
 	initializeQuerySelector();
 	makeCards("");
 	addEventListeners();
-	await getDocs(2, loadDocsPage);
+	getDocs(2, loadDocsPage);	// await 추가 시 로딩 완료 후 페이지네이션 & 정렬기능 활성화
 	loadPaginationButtonState();
 	enableDropdown();
 }
