@@ -58,7 +58,7 @@ function makeCards(searchText) {
 				`;
 
 			$cardsDiv.insertAdjacentHTML("beforeend", temp_html);
-			
+
 			const $card = document.getElementById(docs[i].movieId);
 			$card.addEventListener('click', (event) => {
 				event.preventDefault();
@@ -78,7 +78,7 @@ async function clickedCard(movieId) {
 
 	const $posterFrame = document.querySelector("#poster-frame");
 	
-	let idx = docs.findIndex((doc) => { return doc['movieId'] == movieId; });
+	let idx = docs.findIndex(doc => doc['movieId'] == movieId);
 
 	let temp_html = `
 			<div class="col p-4 text-center poster-box">
@@ -135,7 +135,7 @@ function addEventListeners() {
 					if (btn.innerHTML != "이전" && btn.innerHTML != "다음")
 						btn.innerHTML = parseInt(btn.innerHTML) - maxPaginationButtonNumber;
 				});
-				pageNumber = $pageLinkButton[5].innerHTML;
+				pageNumber = $pageLinkButton[maxPaginationButtonNumber].innerHTML;
 			}
 			else if (button.innerHTML == "다음") {
 				$pageLinkButton.forEach((btn) => {
