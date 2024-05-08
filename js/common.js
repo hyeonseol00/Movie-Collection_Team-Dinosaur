@@ -29,7 +29,7 @@ function initializeQuerySelector() {
 
 function makeCards(searchText) {
 	$cardsDiv.innerHTML = "";
-	//searchText = searchText.toLowerCase();
+	searchText = searchText.toLowerCase();
 
 	let cardCount = 0;
 
