@@ -59,4 +59,4 @@ async function backToMainPage() {
 	loadPaginationButtonState();
 }
 
-export { importPage, initInformationPage };
+export { importPage, initInformationPage, backToMainPage };

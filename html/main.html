@@ -2,8 +2,11 @@
 	<div class="container">
 		<div class="d-flex align-items-center justify-content-center">
 			<ul class="nav col-auto me-auto justify-content-center">
-				<li><a href="#" class="nav-link px-2 text-white"><img src="/source/dinosaur1.png" alt="파비콘" style="width: 32px; height: 32px;"></a></li>
-				<li><a href="#" class="nav-link px-2 text-white"><h3>영화 모음집</h3></a></li>
+				<li><a href="#" class="nav-link px-2 text-white"><img src="/source/dinosaur1.png" alt="파비콘"
+							style="width: 32px; height: 32px;"></a></li>
+				<li><a href="#" class="nav-link px-2 text-white">
+						<h3>영화 모음집</h3>
+					</a></li>
 			</ul>
 
 			<div class="col-auto me-3">
@@ -17,13 +20,15 @@
 		</div>
 	</div>
 </header>
-<!-- 개발 중 주석처리
-<div class = "sortbtn">
-	<button id="SortMovieName" type="button" class="btn btn-danger">제목순 정렬</button>
-	<button type="SortMovieStar" class="btn btn-danger">평점순 정렬</button>
-</div>
- -->
+
 <nav class="pagination-top" aria-label="Page navigation example">
+	<div class="dropdown">
+		<button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">정렬</button>
+		<ul class="dropdown-menu">
+			<li><a id="sort-rating" class="dropdown-item" href="#">평점순</a></li>
+			<li><a id="sort-name" class="dropdown-item" href="#">이름순</a></li>
+		</ul>
+	</div>
 	<ul class="pagination pagination-lg justify-content-end pr-30">
 		<li class="page-item"><a class="page-link" href="#">이전</a></li>
 		<li class="page-item"><a class="page-link" href="#">1</a></li>

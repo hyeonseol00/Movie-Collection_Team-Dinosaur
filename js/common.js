@@ -1,14 +1,15 @@
 import { docs } from "./fetch.js";
 import { importPage, initInformationPage } from "./switch-info-page.js";
 import { uploadBtr, temping } from "./input-review.js";// MD수정코드
+import { sortByName, sortByRating } from "./sort-movie-cards.js";
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
-let $body;
 let $cardsDiv;
 let $searchBox;
 let $searchButton;
-let $modalInneer;
 let $pageLinkButton;
+let $sortRating;
+let $sortName;
 
 const maxCardNumberInPage = 20;
 const maxPaginationButtonNumber = 5;
@@ -18,12 +19,12 @@ const loadDocsPage = 20;
 let pageNumber = 1;
 
 function initializeQuerySelector() {
-	$body = document.querySelector("body");
 	$cardsDiv = document.querySelector("#cards");
 	$searchBox = document.getElementById("search-box");
 	$searchButton = document.getElementById("search-button");
-	$modalInneer = document.querySelector("#modal-inneer");
 	$pageLinkButton = document.getElementsByClassName("page-link");
+	$sortRating = document.getElementById("sort-rating");
+	$sortName = document.getElementById("sort-name");
 }
 
 function makeCards(searchText) {
@@ -77,7 +78,7 @@ async function clickedCard(movieId) {
 	await importPage("html/information.html");
 
 	const $posterFrame = document.querySelector("#poster-frame");
-	
+
 	let idx = docs.findIndex(doc => doc['movieId'] == movieId);
 
 	let tempOverview = docs[idx].overview;
@@ -157,6 +158,18 @@ function addEventListeners() {
 			makeCards("");
 		});
 	});
+
+	$sortRating.addEventListener('click', (event) => {
+		event.preventDefault();
+		sortByRating();
+	});
+
+	$sortName.addEventListener('click', (event) => {
+		event.preventDefault();
+		sortByName();
+	})
 }
 
-export { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage, initializeQuerySelector, pageNumber, maxPaginationButtonNumber };
+function initPageNumber() { pageNumber = 1; }
+
+export { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage, initializeQuerySelector, pageNumber, maxPaginationButtonNumber, initPageNumber };

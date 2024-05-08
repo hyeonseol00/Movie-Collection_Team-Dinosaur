@@ -11,7 +11,7 @@ async function init() {
 	makeCards("");
 	addEventListeners();
 	loadPaginationButtonState();
-	getDocs(2, loadDocsPage);
+	await getDocs(2, loadDocsPage);
 }
 
 init();
