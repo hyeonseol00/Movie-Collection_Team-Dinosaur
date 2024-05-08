@@ -86,9 +86,6 @@ async function clickedCard(movieId) {
 		tempOverview = "한글 줄거리가 등록되지 않은 영화입니다.";
 	}
 
-	if (tempOverview.length >= maxOverviewStringLength - 1) {
-	}
-
 	let temp_html = `
 			<div class="col p-4 text-center poster-box">
 				<img src="${docs[idx]['posterImage']}" alt="">
