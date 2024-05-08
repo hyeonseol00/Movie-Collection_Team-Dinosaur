@@ -1,9 +1,8 @@
 import { deleteReview } from "./delete-review.js"
-import { changeReview, openUpdateModal } from "./change-review.js";
+import { changeReview } from "./change-review.js";
 import { addEventListeners, initializeQuerySelector, loadPaginationButtonState, makeCards, maxPaginationButtonNumber, pageNumber } from "./common.js";
 
 let $exitButton;
-let $updateButton;
 let $modalUpdateButton;
 let $modalDeleteButton;
 

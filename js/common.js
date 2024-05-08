@@ -77,8 +77,8 @@ async function clickedCard(movieId) {
 	await importPage("html/information.html");
 
 	const $posterFrame = document.querySelector("#poster-frame");
-
-	let idx = docs.findIndex((doc) => { return doc['movieId'] == movieId; });
+	
+	let idx = docs.findIndex(doc => doc['movieId'] == movieId);
 
 	let tempOverview = docs[idx].overview;
 
@@ -141,7 +141,7 @@ function addEventListeners() {
 					if (btn.innerHTML != "이전" && btn.innerHTML != "다음")
 						btn.innerHTML = parseInt(btn.innerHTML) - maxPaginationButtonNumber;
 				});
-				pageNumber = $pageLinkButton[5].innerHTML;
+				pageNumber = $pageLinkButton[maxPaginationButtonNumber].innerHTML;
 			}
 			else if (button.innerHTML == "다음") {
 				$pageLinkButton.forEach((btn) => {
