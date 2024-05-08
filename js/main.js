@@ -1,5 +1,5 @@
 import { getDocs } from "./fetch.js";
-import { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage, initializeQuerySelector } from "./common.js";
+import { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage, initializeQuerySelector, enableDropdown } from "./common.js";
 import { importPage } from "./switch-info-page.js";
 
 async function init() {
@@ -10,8 +10,9 @@ async function init() {
 	initializeQuerySelector();
 	makeCards("");
 	addEventListeners();
-	loadPaginationButtonState();
 	await getDocs(2, loadDocsPage);
+	loadPaginationButtonState();
+	enableDropdown();
 }
 
 init();

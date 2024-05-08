@@ -14,7 +14,7 @@ let $sortName;
 const maxCardNumberInPage = 20;
 const maxPaginationButtonNumber = 5;
 const maxOverviewStringLength = 180;
-const loadDocsPage = 20;
+const loadDocsPage = 50;
 
 let pageNumber = 1;
 
@@ -122,6 +122,11 @@ function loadPaginationButtonState() {
 	});
 }
 
+function enableDropdown() {
+	$sortName.classList.remove("disabled");
+	$sortRating.classList.remove("disabled");
+}
+
 function addEventListeners() {
 	$searchBox.addEventListener('keyup', (event) => {
 		event.preventDefault();
@@ -172,4 +177,4 @@ function addEventListeners() {
 
 function initPageNumber() { pageNumber = 1; }
 
-export { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage, initializeQuerySelector, pageNumber, maxPaginationButtonNumber, initPageNumber };
+export { makeCards, loadPaginationButtonState, addEventListeners, loadDocsPage, initializeQuerySelector, pageNumber, maxPaginationButtonNumber, initPageNumber, enableDropdown };
