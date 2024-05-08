@@ -58,7 +58,7 @@ function makeCards(searchText) {
 				`;
 
 			$cardsDiv.insertAdjacentHTML("beforeend", temp_html);
-			
+
 			const $card = document.getElementById(docs[i].movieId);
 			$card.addEventListener('click', (event) => {
 				event.preventDefault();
@@ -77,8 +77,14 @@ async function clickedCard(movieId) {
 	await importPage("html/information.html");
 
 	const $posterFrame = document.querySelector("#poster-frame");
-	
+
 	let idx = docs.findIndex((doc) => { return doc['movieId'] == movieId; });
+
+	let tempOverview = docs[idx].overview;
+
+	if (tempOverview.length <= 0) {
+		tempOverview = "한글 줄거리가 등록되지 않은 영화입니다.";
+	}
 
 	let temp_html = `
 			<div class="col p-4 text-center poster-box">
@@ -92,12 +98,12 @@ async function clickedCard(movieId) {
 			<p id="movie-id" data-movie-id="${docs[idx]['movieId']}">영화 ID : ${docs[idx]['movieId']}</p>
 			<p>평균 평점 : ${docs[idx]['voteAverage']}</p>
 			<p>평점 수 : ${docs[idx]['voteCount']}</p>
-			<p>줄거리 : <br>&emsp;${docs[idx]['overview']}</p>
+			<p>줄거리 : <br>&emsp;${tempOverview}</p>
 			`;
 
 	$posterFrame.insertAdjacentHTML("beforeend", temp_html);
 	uploadBtr(movieId, "uploadbrt", "review"); // MD수정 코드
-	temping(movieId, "review-card-box") // MD수정 코드
+	temping(movieId, "review-card-box"); // MD수정 코드
 	initInformationPage();
 }
 
