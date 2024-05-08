@@ -28,7 +28,7 @@ textarea {
 
 .card-box {
 	max-width: 1600px;
-	margin: 20px auto 20px auto;
+	margin: 0px auto 20px auto;
 	padding: 30px;
 }
 
@@ -73,6 +73,10 @@ textarea {
 
 .pr-30 {
 	padding-right: 30px;
+}
+
+.pl-30 {
+	padding-left: 30px;
 }
 
 @media (max-width: 550px) {
