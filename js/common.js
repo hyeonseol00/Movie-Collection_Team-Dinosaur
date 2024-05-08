@@ -80,14 +80,13 @@ async function clickedCard(movieId) {
 
 	let idx = docs.findIndex((doc) => { return doc['movieId'] == movieId; });
 
-	let tempOverview = docs[idx].overview.slice(0, maxOverviewStringLength);
+	let tempOverview = docs[idx].overview;
 
 	if (tempOverview.length <= 0) {
 		tempOverview = "한글 줄거리가 등록되지 않은 영화입니다.";
 	}
 
 	if (tempOverview.length >= maxOverviewStringLength - 1) {
-		tempOverview += "...";
 	}
 
 	let temp_html = `
